@@ -1,0 +1,129 @@
+// Header
+@use "./variables" as v;
+
+
+
+.topnav {
+ width: 100%;
+ background-color: v.$mg_color;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ padding: 5px 10px;
+ &__logo {
+  display: none;
+ }
+ &__menu {
+  position: absolute;
+  visibility: hidden;
+  left: 0;
+  top: 59px;
+  width: 40vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: left;
+  background-color: black;
+  height: 100vh;
+  padding-top: 10px;
+  
+ }
+ &__item {
+  display: flex;
+  align-items: center;
+  height: 100%;
+ }
+ &__link {
+  padding: 10px 25px;
+  text-decoration: none;
+  color: white;
+  font-size: 25px;
+ }
+ &__menu-btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 40px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  &--active .topnav__burger {   
+   transform: translateX(-50px); // Change middle bar translation 
+   background: transparent;
+   box-shadow: none;
+   &::before {
+    transform: rotate(45deg) translate(35px, -35px);
+   }
+   &::after {
+    transform: rotate(-45deg) translate(35px, 35px);
+   }
+  }
+  &--active .topnav__menu {
+   visibility: visible;
+   left: 0;
+  }
+ }
+ &__burger {
+  width: 35px;
+  height: 5px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px v.$primary_color;
+  transition: all 0.5s ease-in-out;
+  &::before, &::after {
+   content: "";
+   position: absolute;
+   width: 35px;
+   height: 5px;
+   background: white;
+   border-radius: 5px;
+   box-shadow: 0 2px 5px v.$primary_color;
+   transition: all 0.5s ease-in-out;
+  }
+  &::before {
+   transform: translateY(-12px);
+  }
+  &::after {
+   transform: translateY(12px);
+  }
+ }
+}
+
+ 
+
+
+
+// .topnav__menu-btn--active .topnav__burger {
+//  transform: translateX(-50px); // Change middle bar translation 
+//  background: transparent;
+//  box-shadow: none;
+// }
+
+// .topnav__menu-btn--active .topnav__burger::before {
+//  transform: rotate(45deg) translate(35px, -35px);
+// }
+
+// .topnav__menu-btn--active .topnav__burger::after {
+//  transform: rotate(-45deg) translate(35px, 35px);
+// }
+
+// .topnav__menu-btn--active .topnav__menu {
+//  left: 0px;
+ 
+// }
+
+// .topnav__menu {
+//  // display: block;
+//  position: absolute;
+//    text-align: center;
+//    visibility: hidden;
+//    transition: all 0.5;
+//    top: 0;
+//    left: 0;
+//    width: 100vw;
+//    height: 20%;
+//    margin: 0;
+//    padding: 0px;
+//    list-style: none;
+//    background-color: rgba(238, 233, 233, 0.133);
+// }
