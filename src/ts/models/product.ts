@@ -6,7 +6,7 @@ export class Product {
   constructor(label: string, price: number, options: [], description: string) {
     this.label = label;
     this.price = price;
-    this.options = [];
+    this.options = options;
     this.description = description;
   }
 }

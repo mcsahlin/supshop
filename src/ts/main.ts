@@ -10,7 +10,7 @@ menuBtn.addEventListener("click", () => {
     menuActive = false;
   }
 });
-
+// ---------------------------------------------------------------------------
 // Create base
 const body = document.body;
 const mainDiv = createHtml("main", "main");
