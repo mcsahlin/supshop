@@ -1,0 +1,24 @@
+@use "./variables" as v;
+html {
+ box-sizing: border-box;
+ overflow-x: hidden;
+}
+
+body {
+ background-color: v.$bg_color;
+}
+
+*, *:before, *:after {
+ box-sizing: inherit;
+ margin: 0;
+ padding: 0;
+}
+
+ol, ul {
+ list-style: none;
+}
+
+img {
+ max-width: 100%;
+ height: auto;
+}
