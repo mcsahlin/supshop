@@ -1,7 +1,7 @@
 import { createHtml } from "../_functions";
-const inventory = [] as Product[];
-const pillOptions = ["60 pcs", "120 pcs"] as string[];
-const powderOptions = [
+export const inventory: Product[] = [];
+export const pillOptions = ["60 pcs", "120 pcs"] as string[];
+export const powderOptions = [
   "Chocolate",
   "Banana",
   "Caramel",
@@ -57,89 +57,110 @@ function newId(): string {
   );
 }
 
-export function addSamplePack() {
+export function addSamplePack(): Product[] {
   let lorem: string =
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, eaque ducimus? Distinctio doloremque inventore architecto fuga consequuntur et, doloribus nesciunt velit nisi, a blanditiis commodi soluta? Pariatur tenetur eum impedit placeat omnis accusantium magni, fuga reiciendis excepturi natus quam dignissimos autem, velit sit consequatur nam id repellendus consequuntur repellat totam dicta doloremque debitis. Aperiam quidem voluptate veniam temporibus consequatur, accusantium sit dignissimos a? Laborum vel illo nihil quae dignissimos reiciendis maiores autem eveniet eum nesciunt dolores dolore sit sed repellendus voluptas, exercitationem explicabo perspiciatis aut consequatur incidunt delectus ad! Molestiae vitae commodi laborum eos, velit facere dignissimos voluptatem quasi nam nemo accusamus qui odit impedit temporibus nostrum obcaecati exercitationem recusandae tenetur iste placeat! Iusto veniam, nesciunt temporibus fuga praesentium ab voluptatum, explicabo aut recusandae, totam suscipit earum. Quo molestiae animi omnis deleniti neque impedit numquam earum praesentium iusto, vitae dolores maxime, tempore optio quod! Facilis reiciendis excepturi placeat. Odit ipsum ipsam dignissimos sunt vero dolorem minus delectus provident laudantium sed, ab quia ut unde fugit explicabo blanditiis. Dolor, odit aliquam exercitationem, eligendi itaque aspernatur laborum repellendus expedita tenetur ducimus, est vel hic! Mollitia nulla dolor accusantium, rerum quam quod, vitae repellendus temporibus nostrum impedit ipsam cum sequi iusto ducimus quia quidem eum omnis voluptatum quo nisi delectus incidunt vel magni. Perferendis suscipit nisi hic harum ratione, cum non eius officiis blanditiis soluta, illum alias officia dolores facilis quis ex, quaerat repudiandae ducimus voluptate mollitia quas laudantium esse dignissimos. Quibusdam, voluptatum ullam aperiam atque veniam dicta earum fugit sunt labore fugiat eaque. Animi atque unde possimus, nam, quam veniam at praesentium obcaecati autem id quos quod harum, doloribus asperiores iste odit labore aut deleniti inventore aperiam exercitationem ducimus assumenda ipsam. Expedita libero ad dolorem quo sed perferendis aut ipsa nulla tempore ducimus quae, amet eum optio asperiores, fugiat cumque aspernatur alias exercitationem officiis id accusantium! Rem consectetur aspernatur perspiciatis asperiores quo, deserunt sunt sint impedit beatae expedita magnam voluptates. Ipsum quae totam odit dolor, esse architecto iure fuga sit! Necessitatibus expedita, fuga tempore nobis vitae, corrupti pariatur doloribus numquam iure nam quos earum veniam? Corrupti aut explicabo sit iste architecto, sunt officia fugiat harum cum ad sed quaerat culpa ullam voluptate tempore praesentium doloremque deserunt? Iusto facere consequuntur nulla ullam minima dolores cumque, ut illum, animi officiis vitae ipsum amet, quis praesentium quia commodi? Sapiente, illum. Blanditiis numquam id dolores nam! Sint incidunt exercitationem ipsam sit. Omnis blanditiis provident corrupti debitis? Id optio sit excepturi provident similique? Id nam illo harum provident tempore eveniet, aperiam ducimus a eaque dolorum reprehenderit porro voluptas dolorem velit, nulla cum expedita repudiandae nobis ratione ad. Quaerat placeat provident est obcaecati, corporis doloremque. Quasi saepe facere itaque commodi nisi laboriosam sapiente quibusdam est, id placeat qui cupiditate sunt ipsum ullam aliquid eveniet! Nobis cum laudantium veritatis eius earum rerum libero quas ratione voluptates, consectetur ex, repellat nihil quae nostrum omnis mollitia optio neque perspiciatis dolor molestiae vel laborum illo asperiores! Fuga quo porro sapiente dolores, molestiae expedita voluptate, veniam, eius quibusdam cumque dolorem inventore doloremque exercitationem!";
-  new Product(
-    "Apigenin, Caps.",
-    "299",
-    pillOptions,
-    lorem,
-    "ApigeninCapsulesSPLASHv2__48047.jpg",
-    true
+    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, eaque ducimus? Distinctio doloremque inventore architecto fuga consequuntur et, doloribus nesciunt velit nisi, a blanditiis commodi soluta? Pariatur tenetur eum impedit placeat omnis accusantium magni, fuga reiciendis excepturi natus quam dignissimos autem, velit sit consequatur nam id repellendus consequuntur repellat totam dicta doloremque debitis. Aperiam quidem voluptate veniam temporibus consequatur, accusantium sit dignissimos a? Laborum vel illo nihil quae dignissimos reiciendis maiores autem eveniet eum nesciunt dolores dolore sit sed repellendus voluptas, exercitationem explicabo perspiciatis aut consequatur incidunt delectus ad! Molestiae vitae commodi laborum eos, velit facere dignissimos voluptatem quasi nam nemo accusamus qui odit impedit temporibus nostrum obcaecati exercitationem recusandae tenetur iste placeat! Iusto veniam, nesciunt temporibus fuga praesentium ab voluptatum, explicabo aut recusandae, totam suscipit earum. Quo molestiae animi omnis deleniti neque impedit numquam earum praesentium iusto, vitae dolores maxime, tempore optio quod! Facilis reiciendis excepturi placeat. Odit ipsum ipsam dignissimos sunt vero dolorem minus delectus provident laudantium sed, ab quia ut unde fugit explicabo blanditiis. Dolor, odit aliquam exercitationem, eligendi itaque aspernatur laborum repellendus expedita tenetur ducimus, est vel hic! Mollitia nulla dolor accusantium, rerum quam quod, vitae repellendus temporibus nostrum impedit ipsam cum sequi iusto ducimus quia quidem eum omnis voluptatum quo nisi delectus incidunt vel magni. Perferendis suscipit nisi hic harum ratione, cum non eius officiis blanditiis soluta, illum alias officia dolores facilis quis ex, quaerat repudiandae ducimus voluptate mollitia quas laudantium esse dignissimos. Quibusdam, voluptatum ullam aperiam atque veniam dicta earum fugit sunt labore fugiat eaque. Animi atque unde possimus, nam, quam veniam at praesentium obcaecati autem id quos quod harum, doloribus asperiores iste odit labore aut deleniti inventore aperiam exercitationem ducimus assumenda ipsam. Expedita libero ad dolorem quo sed perferendis aut ipsa nulla tempore ducimus quae, amet eum optio asperiores, fugiat cumque aspernatur alias exercitationem officiis id accusantium! Rem consectetur aspernatur perspiciatis asperiores quo, deserunt sunt sint impedit beatae expedita magnam voluptates. Ipsum quae totam odit dolor, esse architecto iure fuga sit! Necessitatibus expedita, fuga tempore nobis vitae, corrupti pariatur doloribus numquam iure nam quos earum veniam? Corrupti aut explicabo sit iste architecto, sunt officia fugiat harum cum ad sed quaerat culpa ullam voluptate tempore praesentium doloremque deserunt? Iusto facere consequuntur nulla ullam minima dolores cumque, ut illum, animi officiis vitae ipsum amet, quis praesentium quia commodi? Sapiente, illum!";
+  inventory.push(
+    new Product(
+      "BioTechUSA Tribooster, 60 caps",
+      "229",
+      pillOptions,
+      lorem,
+      "https://www.tillskottsbolaget.se/bilder/artiklar/zoom/BIOTECH843_1.jpg?m=1625179915",
+      true
+    )
   );
-  new Product(
-    "L-Glutathione, Tabl.",
-    "349",
-    pillOptions,
-    lorem,
-    "L-GlutathioneTabletsSPLASH__07198.jpg",
-    true
+  inventory.push(
+    new Product(
+      "Sportlab Limitless, 60 caps",
+      "399",
+      pillOptions,
+      lorem,
+      "https://www.tillskottsbolaget.se/bilder/artiklar/zoom/SPORTLAB753_1.jpg?m=1654808842",
+      true
+    )
   );
-  new Product(
-    "Matrine, Caps.",
-    "429",
-    pillOptions,
-    lorem,
-    "MatrineCapsulesSPLASH__85123.jpg",
-    true
+  inventory.push(
+    new Product(
+      "Sportlab Focus, NOO-PEPT, 90 caps",
+      "249",
+      pillOptions,
+      lorem,
+      "https://www.tillskottsbolaget.se/bilder/artiklar/zoom/SPORTLAB7853_1.jpg?m=1654808909",
+      true
+    )
   );
-  new Product(
-    "NADH, Powder",
-    "350",
-    powderOptions,
-    lorem,
-    "NADHPowderSPLASH__95475.jpg",
-    false
+  inventory.push(
+    new Product(
+      "Sportlab Androgenic Testo Growth, 120 caps",
+      "349",
+      powderOptions,
+      lorem,
+      "https://www.tillskottsbolaget.se/bilder/artiklar/zoom/SPORTLAB001_1.jpg?m=1654808783",
+      false
+    )
   );
-  new Product(
-    "Reduced L-Glutathione, Powder",
-    "250",
-    powderOptions,
-    lorem,
-    "ReducedL-GlutathionePowderSPLASH__99264.jpg",
-    false
+  inventory.push(
+    new Product(
+      "Chaos Crew Turkesterone HIGH DOSE - 500 mg, 90 caps",
+      "599",
+      powderOptions,
+      lorem,
+      "https://www.tillskottsbolaget.se/bilder/artiklar/zoom/CHAOS7583_1.jpg?m=1656360007",
+      false
+    )
   );
-  new Product(
-    "NMN, Powder",
-    "750",
-    powderOptions,
-    lorem,
-    "NMNPowderSPLASH__74856.jpg",
-    false
+  inventory.push(
+    new Product(
+      "SOLID Nutrition BLACK LINE Turkesterone - 333 mg, 90 caps",
+      "549",
+      powderOptions,
+      lorem,
+      "https://www.tillskottsbolaget.se/bilder/artiklar/zoom/SOLID75832_1.jpg?m=1661374360",
+      false
+    )
   );
-  new Product(
-    "Nicotinamide Riboside, Caps.",
-    "450",
-    pillOptions,
-    lorem,
-    "NicotinamideRibosideCapsulesSPLASH__83474.jpg",
-    true
+  inventory.push(
+    new Product(
+      "Optimum Nutrition Opti-Women, 60 caps",
+      "189",
+      pillOptions,
+      lorem,
+      "https://www.tillskottsbolaget.se/bilder/artiklar/zoom/OPTIMUM003_1.jpg?m=1614199819",
+      true
+    )
   );
-  new Product(
-    "Pyridoxal-5-Phosphate, Caps.",
-    "750",
-    pillOptions,
-    lorem,
-    "Pyridoxal5PhosphateCapsulesSPLASH__79450.jpg",
-    true
+  inventory.push(
+    new Product(
+      "Swedish Supplements Vitamin & Mineral Complex",
+      "299",
+      pillOptions,
+      lorem,
+      "https://www.tillskottsbolaget.se/bilder/artiklar/zoom/SSVMC_1.jpg?m=1653342949",
+      true
+    )
   );
-  new Product(
-    "S-AcetylL-Glutathione, Caps.",
-    "229",
-    pillOptions,
-    lorem,
-    "S-AcetylL-GlutathioneCapsulesSPLASH__90722.jpg",
-    true
+  inventory.push(
+    new Product(
+      "Star Nutrition Ultimate Omega-3, 90 caps, 80%",
+      "229",
+      pillOptions,
+      lorem,
+      "https://www.tillskottsbolaget.se/bilder/artiklar/zoom/STAR022_1.jpg?m=1614199775",
+      true
+    )
   );
-  new Product(
-    "Tongkat Ali, Caps.",
-    "349",
-    pillOptions,
-    lorem,
-    "TongkatAliCapsulesSPLASH__89306.jpg",
-    true
+  inventory.push(
+    new Product(
+      "Scitec Nutrition Omega 3, 100 caps",
+      "139",
+      pillOptions,
+      lorem,
+      "https://www.tillskottsbolaget.se/bilder/artiklar/zoom/SCITEC0012_1.jpg?m=1657827568",
+      true
+    )
   );
+  return inventory;
 }
 
 // function samplePack() {

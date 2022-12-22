@@ -1,17 +1,122 @@
-
 .product-page {
  display: flex;
  flex-direction: column;
- // align-items: center;
+ align-items: center;
  justify-content: center;
  color: white;
 }
-
-.prod__img-container{
- width: 90vw;
- height: auto;
+.container {
+ display: flex;
+ flex-direction: column;
+ width: 90vw; 
+ padding: 20px;
 }
-
-.prod__info {
+.prod {
+ display: flex;
+ flex-direction: column;
+ gap: 15px;
+ justify-content: center;
+ align-items: left;
+ &__img {
+  border-radius: 50%;
+ }
+ &__info {
+  display: flex;
+  flex-direction: column; 
+  font-size: large;
+  span:first-of-type {
+   font-size: xx-large;
+   font-weight: 600;;
+  } 
+ }
+ &__opt-box {
+  gap: 10px;
+ }
+ &__opt {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+ }
+ &__flav-lbl {
+  font-size: larger;
+ };
+ &__flav-sel {
+  height: 30px;
+ }
+ &__qty {
+  display: flex;
+  justify-content: space-between;
+ }
+ &__qty-container {
+  width: 38%;
+  display: flex;
+  justify-content: space-between;
+ }
+ &__qty-btn {
+  width: 8vw;
+  height: auto;
+  border-radius: 50%;
+  font-size: x-large;
+  border: none;
+  font-weight: 600;
+  background-color: white;
+  outline: 2px solid white;
+  &--incr {
+   outline: rgb(255, 113, 113);
+   &:active {
+    outline: 3px solid rgb(123, 255, 123);
+   }
+  }
+  &--decr {
+   outline:rgb(113, 255, 144);
+   &:active {
+    outline: 3px solid rgb(255, 86, 86);
+   }
+  }
+  &--incr, &--decr {
+   &:hover {
+    background-color: rgb(227, 227, 227);
+   }
+   &:active {
+    background-color: transparent;
+    color: white;
+   }
+  }
+ }
+ &__qty-input[type=number] {
+  width: 35%;
+  height: 100%;
+  border-radius: 3px;
+  outline: 2px solid white;
+  color: white;
+  font-size: x-large;
+  text-align: center;
+  background-color: transparent;
+  &::-webkit-outer-spin-button, &::-webkit-inner-spin-button{
+   -webkit-appearance: none;
+   margin: 0;
+  }
+ }
+ &__btn-buy {
+  width: 50%;
+  height: 35px;
+  background-color: green;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  &:hover{
+   border: none;
+   outline: 3px solid hsl(136, 100%, 57%);
+  }
+ }
+ &__description {
+  border: 3px solid #2a2b2c;
+ }
+}
+.promo { 
  width: 90vw;
+ &__heading {
+  margin-top: 20px;
+  margin-bottom: 5px;
+ }
 }

@@ -2,6 +2,7 @@
 html {
  box-sizing: border-box;
  overflow-x: hidden;
+ font-size: large;
 }
 
 body {
@@ -22,4 +23,11 @@ ol, ul {
 img {
  max-width: 100%;
  height: auto;
+}
+
+div {
+ background-color: #2a2b2c;
+}
+input, button, select {
+ height: 30px;
 }

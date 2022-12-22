@@ -5,7 +5,11 @@
  &--back {
   display: flex;
   justify-content: space-between;
-  &__img {
+  padding-bottom: 5px;
+  div {
+   background-color: transparent;
+  }
+   &__img {
    height: 20px;
   }
  }
