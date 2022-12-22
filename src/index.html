@@ -5,35 +5,58 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <link rel="stylesheet" href="scss/main.scss">
  <script defer src="ts/main.ts" type="module"></script>
- <title>Supshop - För hälsans skull</title>
+ <title>Supshop - Health in a bottle</title>
 </head>
 <body>
- <header></header>
-  <!-- Menyrad -->
-  <nav class="topnav">
-   <!-- <div class="topnav__container"> -->
-    <div class="topnav__menu-btn">
-     <div class="topnav__burger">
+  <main class="product-page">
+    <section class="prod">
       
-     </div>
-    </div>
-    <!-- Logga -->
-    <div class="topnav__logo">
-     <a href="#home"><img src="./assets/testlogo.png" alt="Logotyp"/></a>
-    </div>
- 
-    <!-- Meny -->
-    <ul class="topnav__menu">
-     <!-- Menyobjekt -->
-     <li class="topnav__menu-item"><a class="topnav__link" href="#">Produkter</a></li>
-    </ul>
-    <a class="topnav__link topnav__cart" href="#"><img src="./assets/cart-white-32.png" alt="Cart"></a>
+      <!-- Return to previous page -->
+      <button class="btn btn--back" type="button" id="btn-back"><div><img class="btn--back__img" src="./assets/icons/arrow-back-white.png" alt="Go to previous page" title="Previous page"/></div>Back</button>
+      
+      <!-- Images -->
+      <div class="prod__img"></div> 
 
-   <!-- </div> -->
+      <!-- Price and label -->
+      <div class="prod__info">
+        <div class="info__price"></div>
+        <div class="info__lbl"></div>
+      </div>
+      
+      <!-- Options -->
+      <div class="opt-box">
 
-  </nav>
+        <!-- Flavor -->
+        <div class="prod__opt">
+          <label class="flav__lbl" for="flav__sel">Choose flavor</label>
+          <select class="flav__opt" id="flav__sel" placeholder="Click-n-pick.."></select>
+        </div>
 
+        <!-- Quantity -->
+        <div class="prod__qty">
+          <label for="qty">
+            <button class="qty__incr" type="button">+</button>
+            <input id="qty" class="qty" type="number" value="1"/>
+            <button class="qty__decr" type="button">-</button>
+          </label>
+        </div>
 
-</label>
+        <!-- Add to cart -->
+        <button class="btn btn--buy" type="button">Add to cart</button>
+      </div>
+
+      <!-- Details -->
+      <article class="prod__specs">
+        <p class="specs"></p>
+      </article>
+    </section>
+
+    <!-- Promos -->
+    <section class="promos">
+      <h3>Others also bought:</h3>
+    </section>
+  </main>
 </body>
 </html>
+
+

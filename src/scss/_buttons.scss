@@ -1,0 +1,12 @@
+@use "mixins" as m;
+
+.btn {
+ @include m.button;
+ &--back {
+  display: flex;
+  justify-content: space-between;
+  &__img {
+   height: 20px;
+  }
+ }
+}

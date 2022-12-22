@@ -1,32 +1,24 @@
-// Toggle hamburger menu
-const menuBtn = document.querySelector(".topnav__menu-btn") as HTMLDivElement;
-let menuActive: boolean = false;
-menuBtn.addEventListener("click", () => {
-  if (!menuActive) {
-    menuBtn.classList.add("topnav__menu-btn--active");
-    menuActive = true;
-  } else {
-    menuBtn.classList.remove("topnav__menu-btn--active");
-    menuActive = false;
-  }
-});
-// ---------------------------------------------------------------------------
-// Create base
-const body = document.body;
-const mainDiv = createHtml("main", "main");
-body.appendChild(mainDiv);
+import { addSamplePack, Product } from "./modules/product";
+import { createHtml } from "./_functions";
+//#region PRODUCT PAGE
 
-// Create and append "previous page button"
-const backBtn = createHtml("button", "btn-back");
-mainDiv.appendChild(backBtn);
-backBtn.addEventListener("click", history.back);
+addSamplePack();
+const btnBack = document.getElementById("btn-back") as HTMLButtonElement;
+btnBack.addEventListener("click", history.back);
+// const imgBox = document.querySelector("prod__img-box") as HTMLDivElement;
+const imgBox: HTMLDivElement = document.getElementById(
+  "prod__img-box"
+) as HTMLDivElement;
 
-// Create and append item showcase container
-const itemContainer = createHtml("section", "details");
-mainDiv.appendChild(itemContainer);
+// LOAD ID.img
+const img = createHtml("img", "prod__img") as HTMLImageElement;
+img.setAttribute("src", ".././assets/ApigeninCapsulesSPLASHv2__48047.jpg");
+img.setAttribute("alt", "Product image");
+imgBox.appendChild(img);
+
+//#endregion PRODUCT PAGE
 
 // Create item image container
-const imgBox = createHtml("div", "details__img-box");
 
 // Item price and label
 const itemInfo = createHtml("div", "details__info-box");
@@ -47,9 +39,3 @@ const descriptionBox = createHtml("article", "details__description");
 
 // Product suggestions
 const otherProducts = createHtml("section", "details__other-products");
-
-function createHtml(htmlTag: string, className: string): HTMLElement {
-  const newElement = document.createElement(htmlTag) as HTMLElement;
-  newElement.classList.add(className);
-  return newElement;
-}

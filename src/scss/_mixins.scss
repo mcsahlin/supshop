@@ -1,6 +1,18 @@
 @use "./variables" as v;
 
-
+@mixin button {
+  background-color: transparent;
+  color: white;
+  width: 85px;
+  // border: 1px solid white;
+  padding: 5px;
+  border: none;
+  font-size: large;
+  &:hover {
+    border-bottom: 2px solid white;
+    cursor: pointer;
+  }
+}
 
 @mixin tablet {
  @media screen and (min-width: var.$tablet_breakpoint) {

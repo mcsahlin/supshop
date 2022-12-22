@@ -1,0 +1,17 @@
+
+.product-page {
+ display: flex;
+ flex-direction: column;
+ // align-items: center;
+ justify-content: center;
+ color: white;
+}
+
+.prod__img-container{
+ width: 90vw;
+ height: auto;
+}
+
+.prod__info {
+ width: 90vw;
+}
