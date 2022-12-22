@@ -3,12 +3,13 @@ import {
   pillOptions,
   powderOptions,
   Product,
+  inventory,
 } from "./modules/product";
 import { createHtml } from "./_functions";
 
 //#region PRODUCT PAGE
 
-const inventory: Product[] = addSamplePack();
+addSamplePack();
 const btnBack = document.getElementById("btn-back") as HTMLButtonElement;
 btnBack.addEventListener("click", history.back);
 const imgBox = document.querySelector(".prod__img-container") as HTMLDivElement;
