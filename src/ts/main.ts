@@ -15,10 +15,7 @@ const imgBox = document.querySelector(".prod__img-container") as HTMLDivElement;
 
 // LOAD ID.img
 const img = createHtml("img", "prod__img") as HTMLImageElement;
-img.setAttribute(
-  "src",
-  "https://www.tillskottsbolaget.se/bilder/artiklar/zoom/SUPPNEEDS4321_1.jpg?m=1626461883"
-);
+img.setAttribute("src", inventory[0].imgLink);
 img.setAttribute("alt", "Product image");
 imgBox.appendChild(img);
 
