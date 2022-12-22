@@ -37,17 +37,18 @@ itemInfo.appendChild(itemLabel);
 const flavorSel = document.querySelector(
   ".prod__flav-sel"
 ) as HTMLSelectElement;
+
 if (inventory[0].isPills) {
   pillOptions.map((opt) => {
-    let newOpt = createHtml("option", "pill-opt") as HTMLOptionElement;
+    let newOpt = createHtml("option", "pill-opt");
     newOpt.innerHTML = opt;
-    flavorSel.innerHTML += newOpt;
+    flavorSel.appendChild(newOpt);
   });
 } else {
   powderOptions.map((opt) => {
     let newOpt = createHtml("option", "pill-opt") as HTMLOptionElement;
     newOpt.innerHTML = opt;
-    flavorSel.innerHTML += newOpt;
+    flavorSel.appendChild(newOpt);
   });
 }
 
