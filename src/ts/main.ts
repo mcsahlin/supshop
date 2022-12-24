@@ -6,6 +6,10 @@ import {
   inventory,
 } from "./models/product";
 import { createHtml } from "./helpers";
+const body = document.body;
+const mainDiv = createHtml("main", "main") as HTMLDivElement;
+body.appendChild(mainDiv);
+
 //#region Initialize PRODUCT PAGE
 addSamplePack();
 const btnBack = document.getElementById("btn-back") as HTMLButtonElement;
@@ -94,3 +98,45 @@ for (let i = 0; i < promoSlots.length; i++) {
   promoSlots[i].appendChild(txt);
 }
 //#endregion
+const menuBtn = document.querySelector(".topnav__menu-btn") as HTMLDivElement;
+let menuActive: boolean = false;
+menuBtn.addEventListener("click", () => {
+  if (!menuActive) {
+    menuBtn.classList.add("topnav__menu-btn--active");
+    menuActive = true;
+  } else {
+    menuBtn.classList.remove("topnav__menu-btn--active");
+    menuActive = false;
+  }
+});
+
+
+// StartPage start________________________Yo
+
+const product_container = createHtml( "div","product_box_start_page");
+const product_box = createHtml("div", "product_box");
+const product_box2 = createHtml("div", "product_box2");
+const product_box3 = createHtml("div", "product_box3");
+const product_box4 = createHtml("div", "product_box4");
+
+product_container.appendChild(product_box);
+product_container.appendChild(product_box2);
+product_container.appendChild(product_box3);
+product_container.appendChild(product_box4);
+
+document.body.appendChild(product_container);
+
+const banner_box = createHtml( "div","banner");
+document.body.appendChild(banner_box);
+
+const slide_div = createHtml("div", "slide_div");
+
+const ban_slide = document.createElement('img');
+ban_slide.src= "https://www.tillskottsbolaget.se/bilder/artiklar/zoom/SPORTLAB753_1.jpg?m=1654808842";
+
+slide_div.appendChild(ban_slide);
+
+document.body.appendChild(slide_div);
+
+
+
