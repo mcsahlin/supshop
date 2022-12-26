@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import {
   addSamplePack,
   pillOptions,
@@ -110,33 +111,146 @@ menuBtn.addEventListener("click", () => {
   }
 });
 
+=======
+import { addSamplePack, Product } from "./modules/product";
+import { createHtml } from "./_functions";
+
+const inventory: Product[] = addSamplePack();
+>>>>>>> 5d0afd9 (add products to startpage and added plus and minus buttons to the Cart)
 
 // StartPage start________________________Yo
 
-const product_container = createHtml( "div","product_box_start_page");
-const product_box = createHtml("div", "product_box");
-const product_box2 = createHtml("div", "product_box2");
-const product_box3 = createHtml("div", "product_box3");
-const product_box4 = createHtml("div", "product_box4");
+const product_container = createHtml("div", "product_box_start_page");
+let counter = 0;
+inventory.forEach((prodcut) => {
+  let item_box = createHtml("div", "product_box");
+  item_box.id = "product_box_" + counter;
 
-product_container.appendChild(product_box);
-product_container.appendChild(product_box2);
-product_container.appendChild(product_box3);
-product_container.appendChild(product_box4);
+  let img = new Image(120, 120);
+  img.className = "img_item";
+  img.setAttribute("src", prodcut.imgLink);
+  img.setAttribute("alt", "Product image");
+  item_box.appendChild(img);
+
+  let product_info = createHtml("div", "product_info");
+  product_info.id = "product_info_" + counter;
+
+  let item_price = prodcut.price + " kr";
+  let pg = createHtml("p", "txt_paragraph");
+  let txt = document.createTextNode(item_price);
+  pg.appendChild(txt);
+
+  let add_to_cart = createHtml("button", "btn_add_to_cart");
+  add_to_cart.id = "btn_add_to_cart_" + counter;
+  add_to_cart.innerHTML = "Add to Cart";
+
+  let prod_name = prodcut.label;
+  let prod_link = createHtml("a", "a_prod_name");
+  prod_link.setAttribute("href", "product.html/" + prodcut.id);
+  prod_link.setAttribute("target", "_blank");
+  prod_link.innerHTML = prod_name;
+  product_info.appendChild(prod_link);
+  product_info.appendChild(pg);
+  product_info.appendChild(add_to_cart);
+  item_box.appendChild(product_info);
+
+  if (counter === 4) {
+    let banner_box = createHtml("div", "banner");
+    product_container.appendChild(banner_box);
+    let slide_box = createHtml("div", "slide_box");
+    product_container.appendChild(slide_box);
+  }
+
+  product_container.appendChild(item_box);
+  counter += 1;
+});
+
+const footer = document.getElementById("footer");
+if (footer !== null) {
+  product_container.appendChild(footer);
+}
 
 document.body.appendChild(product_container);
 
-const banner_box = createHtml( "div","banner");
-document.body.appendChild(banner_box);
+let btn_list = document.getElementsByClassName(
+  "btn_add_to_cart"
+) as HTMLCollectionOf<HTMLElement>;
 
-const slide_div = createHtml("div", "slide_div");
+for (let i = 0; i < btn_list.length; i++) {
+  btn_list[i].addEventListener("click", () => {
+    let info = document.getElementById("product_info_" + i) as HTMLElement;
 
-const ban_slide = document.createElement('img');
-ban_slide.src= "https://www.tillskottsbolaget.se/bilder/artiklar/zoom/SPORTLAB753_1.jpg?m=1654808842";
+    let to_be_removed = document.getElementById(
+      "btn_add_to_cart_" + i
+    ) as HTMLElement;
+    to_be_removed.style.display = "none";
 
-slide_div.appendChild(ban_slide);
+    let btnContainer = createCartButtons(i);
+    info.appendChild(btnContainer);
+    minusFromCurrentValue(i);
+    addToCurrentValue(i);
+  });
+}
 
-document.body.appendChild(slide_div);
+function createCartButtons(id_number: number): HTMLElement {
+  let btnContainer = createHtml("div", "button_container");
+  btnContainer.id = "btn_container_" + id_number;
+  let btnMinus = createHtml("button", "btn_minus");
+  btnMinus.id = "btn_minus_" + id_number;
+  btnMinus.innerHTML = "-";
+  btnContainer.appendChild(btnMinus);
 
+  let txtField = createHtml("input", "input_number");
+  txtField.id = "input_number_"+id_number;
+  txtField.setAttribute("type", "number");
+  txtField.setAttribute("value", "1");
+  btnContainer.appendChild(txtField);
 
+  let btnAdd = createHtml("button", "btn_plus");
+  btnAdd.id = "btn_plus_"+id_number;
+  btnAdd.innerHTML = "+";
+  btnContainer.appendChild(btnAdd);
 
+  return btnContainer;
+}
+
+function minusFromCurrentValue(currentElement: number) {
+  let minus = document.getElementById("btn_minus_" + currentElement);
+  console.log(minus);
+  if (minus !== null)
+    minus.addEventListener("click", function (event) {
+      let btn_minus = document.getElementById(
+        "input_number_"+currentElement
+      ) as HTMLInputElement;
+      let current_value: number = 1;
+      current_value = Number(btn_minus.value) - current_value;
+
+      if (current_value == 0) {
+        let add_to_cart = createHtml("button", "btn_add_to_cart");
+        add_to_cart.id = "btn_add_to_cart_" + currentElement;
+        add_to_cart.innerHTML = "Add to Cart";
+        let product_info = document.getElementById(
+          "product_info_" + currentElement
+        );
+        product_info?.appendChild(add_to_cart);
+        let minus = document.getElementById(
+          "btn_container_" + currentElement
+        ) as HTMLElement;
+        minus.style.display = "none";
+      }
+    });
+}
+
+function addToCurrentValue(currentElement: number) {
+  let plus = document.getElementById("btn_plus_" + currentElement);
+  console.log(plus);
+  if (plus !== null)
+    plus.addEventListener("click", function (event) {
+      let btn_plus = document.getElementById(
+        "input_number_"+currentElement
+      ) as HTMLInputElement;
+      let current_value: number = Number(btn_plus.value) + 1;
+      console.log("Current value: "+current_value);
+      btn_plus.value = current_value.toString();
+    });
+}

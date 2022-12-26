@@ -1,19 +1,26 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 body{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+   
  
 }
 
 .hero_img{
  width: 375px;
  height:200px;
+ margin-bottom: 55px;
 }
 
 .product_box_start_page{
-    margin-top: 30px;
+    margin-top:45px;
     width: 375px;
-    height: 440px;
+    height: auto;
     background: #212122;
     display: flex;
     justify-content: center;
@@ -25,42 +32,96 @@ body{
 
 .product_box{
     width: 170px;
-    height: 200px;
+    height: 240px;
     background: #2A2B2C;
-    margin: 10px 5px 5px 5px;
-}
-
-.product_box2{
-    width: 170px;
-    height: 200px;
-    background: #2A2B2C;
-    margin: 10px 5px 5px 5px;
-}
-
-.product_box3{
-    width: 170px;
-    height: 200px;
-    background: #2A2B2C;
-    margin: 0 5px 5px 5px;
-}
-
-.product_box4{
-    width: 170px;
-    height: 200px;
-    background: #2A2B2C;
-    margin: 0 5px 5px 5px;
+    margin: 2px 5px 2px 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 .banner{
     width: 349px;
     height: 100px;
     background: #2c76c0;
+    margin-top: 2px;
     margin-left: 13px;
     margin-right: 13px;
+}
+
+.img_item{
+    border-radius: 50%;
+    margin-left: 25px;
+
+}
+
+.product_info{
+    width: 170px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.a_prod_name{
+    color: white;
+    font-size: 14px;
+    margin-left: 5px;
 
     
 }
 
+.txt_paragraph{
+    color: rgb(177, 0, 0);
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 5px;
+}
 
 
+.btn_add_to_cart{
+    border-radius: 8px;
+    background: #f58a07;
+    border: 0;
+    margin-right: 5px;
+    margin-left: 5px;
+}
 
+.slide_box{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 349px;
+    height:200px;
+}
+
+#footer{
+    width: 375px;
+    background: black;
+    height: auto;
+    color: white;
+   
+   }
+
+#info{
+    background: black;
+    width: 100%;
+}
+
+.button_container{
+    display: block;
+    width: 100%;
+    
+}
+
+.input_number{
+    width: 40%;
+    border: 1px;
+    text-align: center;
+
+}
+
+.btn_minus, .btn_plus{
+    width: 30%;
+    background: #f58a07;
+    border: 0;
+}
