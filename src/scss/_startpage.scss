@@ -1,3 +1,5 @@
+@use "./variables" as v;
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
@@ -40,15 +42,6 @@ body{
     align-items: center;
 }
 
-.banner{
-    width: 349px;
-    height: 100px;
-    background: #2c76c0;
-    margin-top: 2px;
-    margin-left: 13px;
-    margin-right: 13px;
-}
-
 .img_item{
     border-radius: 50%;
     margin-left: 25px;
@@ -87,24 +80,25 @@ body{
     margin-left: 5px;
 }
 
+.banner{
+    width: 349px;
+    height: 70px;
+    background: #2c76c0;
+    margin-top: 2px;
+    margin-left: 13px;
+    margin-right: 13px;
+    background-image: url(../assets/startPage/totalNutrigreensOffer.jpg);
+    background-size:100%;
+}
+
 .slide_box{
     margin-top: 5px;
     margin-bottom: 5px;
     width: 349px;
     height:200px;
-}
+    background-image: url(../assets/startPage/excel-protein-banner-1024x347.jpg);
+    background-size: 100%;
 
-#footer{
-    width: 375px;
-    background: black;
-    height: auto;
-    color: white;
-   
-   }
-
-#info{
-    background: black;
-    width: 100%;
 }
 
 .button_container{
@@ -124,4 +118,39 @@ body{
     width: 30%;
     background: #f58a07;
     border: 0;
+}
+
+#footer{
+    width: 375px;
+    background: black;
+    height: auto;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap:30px ;
+    align-items: center;
+    margin-top: 5px;
+
+}
+
+
+#info{
+    margin-top: 20px;
+    background: black;
+    width: 70%;
+    
+}
+
+#custmer_services{
+    background: black;
+    width: 70%;
+}
+
+#social_media{
+    background: black;
+    width: 70%;
+    margin-bottom: 50px;
+}
+h3{
+    margin-bottom: 10px;
 }
