@@ -7,8 +7,7 @@ import {
 } from "./modules/product";
 import { createHtml } from "./_functions";
 
-//#region PRODUCT PAGE
-
+//#region Initialize PRODUCT PAGE
 addSamplePack();
 const btnBack = document.getElementById("btn-back") as HTMLButtonElement;
 btnBack.addEventListener("click", history.back);
@@ -20,7 +19,7 @@ img.setAttribute("src", inventory[0].imgLink);
 img.setAttribute("alt", "Product image");
 imgBox.appendChild(img);
 
-//#endregion PRODUCT PAGE
+//#endregion
 
 // Create item image container
 
@@ -52,13 +51,16 @@ if (inventory[0].isPills) {
   });
 }
 
-const qtyIncrement = document.querySelector(
+//#region QUANTITY SELECTION
+const qtyIncrement: HTMLButtonElement = document.querySelector(
   ".prod__qty-btn--incr"
 ) as HTMLButtonElement;
-const qtyDecrement = document.querySelector(
+const qtyDecrement: HTMLButtonElement = document.querySelector(
   ".prod__qty-btn--decr"
 ) as HTMLButtonElement;
-const qtyInput = document.querySelector(".prod__qty-input") as HTMLInputElement;
+const qtyInput: HTMLInputElement = document.getElementById(
+  "qty"
+) as HTMLInputElement;
 
 qtyIncrement.addEventListener("click", () => {
   let qty: number = parseInt(qtyInput.value);
@@ -75,10 +77,7 @@ qtyInput.addEventListener("blur", () => {
   qty > 20 ? (qty = 20) : qty < 1 ? (qty = 1) : (qty = qty);
   qtyInput.value = qty.toString();
 });
-const buyBtn = document.querySelector(".prod__btn-buy") as HTMLButtonElement;
-buyBtn.addEventListener("click", () => {
-  let qty: number = parseInt(qtyInput.value);
-});
+//#endregion
 
 // Item description
 const descriptionBox = document.querySelector(
@@ -86,7 +85,7 @@ const descriptionBox = document.querySelector(
 ) as HTMLDivElement;
 descriptionBox.innerHTML = inventory[0].description;
 
-// Product suggestions
+//#region Product suggestions
 const promo1 = document.querySelector(".promo__prod-1") as HTMLSpanElement;
 const promo2 = document.querySelector(".promo__prod-2") as HTMLSpanElement;
 const promo3 = document.querySelector(".promo__prod-3") as HTMLSpanElement;
@@ -101,3 +100,4 @@ for (let i = 0; i < promoSlots.length; i++) {
   promoSlots[i].appendChild(img);
   promoSlots[i].appendChild(txt);
 }
+//#endregion
