@@ -163,71 +163,71 @@ export function addSamplePack(): Product[] {
   return inventory;
 }
 
-function samplePack() {
-  let imgList:string[] = [
-    "ApigeninCapsulesSPLASHv2__48047.jpg",
-    "L-GlutathioneTabletsSPLASH__07198.jpg",
-    "MatrineCapsulesSPLASH__85123.jpg",
-    "NADHPowderSPLASH__95475.jpg",
-    "ReducedL-GlutathionePowderSPLASH__99264.jpg",
-    "NMNPowderSPLASH__74856.jpg",
-    "NicotinamideRibosideCapsulesSPLASH__83474.jpg",
-    "Pyridoxal5PhosphateCapsulesSPLASH__79450.jpg",
-    "S-AcetylL-GlutathioneCapsulesSPLASH__90722.jpg",
-    "TongkatAliCapsulesSPLASH__89306.jpg",
+// function samplePack() {
+//   let imgList:string[] = [
+//     "ApigeninCapsulesSPLASHv2__48047.jpg",
+//     "L-GlutathioneTabletsSPLASH__07198.jpg",
+//     "MatrineCapsulesSPLASH__85123.jpg",
+//     "NADHPowderSPLASH__95475.jpg",
+//     "ReducedL-GlutathionePowderSPLASH__99264.jpg",
+//     "NMNPowderSPLASH__74856.jpg",
+//     "NicotinamideRibosideCapsulesSPLASH__83474.jpg",
+//     "Pyridoxal5PhosphateCapsulesSPLASH__79450.jpg",
+//     "S-AcetylL-GlutathioneCapsulesSPLASH__90722.jpg",
+//     "TongkatAliCapsulesSPLASH__89306.jpg",
 
-  ];
+//   ];
 
-  imgList.forEach(index)=>{
-    isPillCheck(index)
-  }
-  function registerItem(){
+//   imgList.forEach(index)=>{
+//     isPillCheck(index)
+//   }
+//   function registerItem(){
 
-    inventory.push(
-      new Product(
-        imgList.map(str)=>{
-          getName(str),
-          "250" || "299" || "590",
-          pillOptions,
-          lorem,
-          str,
-          isPillCheck(str),
-        }))
-      }
+//     inventory.push(
+//       new Product(
+//         imgList.map(str)=>{
+//           getName(str),
+//           "250" || "299" || "590",
+//           pillOptions,
+//           lorem,
+//           str,
+//           isPillCheck(str),
+//         }))
+//       }
 
-  function getName(item:string):string {
-    let name:string = "";
-    let splits = [] as string[];
-    imgList.forEach(str => {
-      if(item === str){
-        str.slice(str.indexOf("SPLASH",str.length));
-        for(let i = 0; i < str.length; i++){
-          splits = str.split(/A-Ö/);
-          splits.forEach(line=>{
-            name = (name += line + " ");
-          });
-        };
-      }
-    });
-    return name;
-  };
-  function isPillCheck(item):boolean{
-    let key = ["Capsules", "Powder"] as string[];
-    let isPills:boolean = false;
-    imgList.forEach(str=>{
-      if(str === item){
-        if(str.includes(key[0])){
-          isPills = true;
-        };
+//   function getName(item:string):string {
+//     let name:string = "";
+//     let splits = [] as string[];
+//     imgList.forEach(str => {
+//       if(item === str){
+//         str.slice(str.indexOf("SPLASH",str.length));
+//         for(let i = 0; i < str.length; i++){
+//           splits = str.split(/A-Ö/);
+//           splits.forEach(line=>{
+//             name = (name += line + " ");
+//           });
+//         };
+//       }
+//     });
+//     return name;
+//   };
+//   function isPillCheck(item):boolean{
+//     let key = ["Capsules", "Powder"] as string[];
+//     let isPills:boolean = false;
+//     imgList.forEach(str=>{
+//       if(str === item){
+//         if(str.includes(key[0])){
+//           isPills = true;
+//         };
 
-      }
-    });
-    return isPills;
-  };
+//       }
+//     });
+//     return isPills;
+//   };
 
-id
-img
-price
-label
-flavor[]
-details
+// id
+// img
+// price
+// label
+// flavor[]
+// details
