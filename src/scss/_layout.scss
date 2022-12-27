@@ -1,15 +1,40 @@
+@use "mixins" as m;
+@use "variables" as v;
+
 .product-page {
  display: flex;
  flex-direction: column;
  align-items: center;
  justify-content: center;
  color: white;
+ width: 95vw;
+ @include m.desktop {
+  max-width: 1200px;
+  margin: 0 auto;
+ }
 }
 .container {
  display: flex;
  flex-direction: column;
  width: 90vw; 
  padding: 20px;
+ &--description, &--super {
+  background-color: v.$bg_color;
+ }
+ &--description {
+  width: 100%;
+ }
+ &--super {
+  display: flex;
+  flex-direction: column;
+  @include m.tablet {
+   flex-direction: row;
+   gap: 2vw;
+  }
+  @include m.desktop {
+   gap: 20px;
+  }
+ }
 }
 .prod {
  display: flex;
@@ -17,8 +42,27 @@
  gap: 15px;
  justify-content: center;
  align-items: left;
+ @include m.desktop {
+  gap: 20px;
+ }
+ &__img-box.container {
+  @include m.tablet {
+   width: 50%;
+  }
+ }
  &__img {
   border-radius: 50%;
+ }
+ &__details {
+  @include m.tablet {
+   display: flex;
+   flex-direction: column;
+   gap: 2vw;
+   width: 50%;
+  }
+  @include m.desktop {
+   gap: 20px;
+  }
  }
  &__info {
   display: flex;
@@ -26,11 +70,25 @@
   font-size: large;
   span:first-of-type {
    font-size: xx-large;
-   font-weight: 600;;
+   font-weight: 600;
+   @include m.desktop {
+    font-size: 60px;
+   }
   } 
+  @include m.tablet {
+   width: 100%;
+   height: 33%; 
+   gap: 10%;
+   justify-content: center;
+  }
  }
  &__opt-box {
   gap: 10px;
+  @include m.tablet {
+   width: 100%;
+   height: 67%;
+    justify-content: space-between;
+  }
  }
  &__opt {
   display: flex;
@@ -39,6 +97,12 @@
  }
  &__flav-lbl {
   font-size: larger;
+  @include m.tablet {
+   font-size: x-large;
+  }
+  @include m.desktop {
+   font-size: xx-large;
+  }
  };
  &__flav-sel {
   height: 30px;
@@ -46,21 +110,37 @@
  &__qty {
   display: flex;
   justify-content: space-between;
+  @include m.tablet {
+   height: 50%;
+   flex-direction: column;
+   justify-content: space-between; 
+  }
  }
  &__qty-container {
   width: 38%;
   display: flex;
   justify-content: space-between;
+  text-align: center;
+  @include m.tablet {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   width: 100%;
+   height: 40%;
+  }
  }
  &__qty-btn {
   width: 8vw;
   height: auto;
-  border-radius: 50%;
+  border-radius: 5%;
   font-size: x-large;
   border: none;
   font-weight: 600;
   background-color: white;
   outline: 2px solid white;
+  @include m.tablet {
+   width: 20%;
+  }
   &--incr {
    outline: rgb(255, 113, 113);
    &:active {
@@ -74,6 +154,7 @@
    }
   }
   &--incr, &--decr {
+   color: v.$bg_color;
    &:hover {
     background-color: rgb(227, 227, 227);
    }
@@ -92,6 +173,9 @@
   font-size: x-large;
   text-align: center;
   background-color: transparent;
+  @include m.tablet {
+   width: 50%;
+  }
   &::-webkit-outer-spin-button, &::-webkit-inner-spin-button{
    -webkit-appearance: none;
    margin: 0;
@@ -108,13 +192,40 @@
    border: none;
    outline: 3px solid hsl(136, 100%, 57%);
   }
+  @include m.tablet {
+   width: 100%;
+   height: 45%;
+  }
  }
  &__description {
   border: 3px solid #2a2b2c;
  }
 }
-.promo { 
- width: 90vw;
+
+.promo {
+ &__link {
+  width: 45%;
+  text-align: center;
+ }
+ &.container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  @include m.tablet {
+   flex-wrap: nowrap;
+   gap: 2vw;
+  }
+  @include m.desktop {
+   flex-wrap: nowrap;
+   gap: 20px;
+  }
+ }
+ &__prod-img {
+  border-radius: 50%;
+  outline: 5px solid rgb(148, 148, 255, 0.5);
+ }
  &__heading {
   margin-top: 20px;
   margin-bottom: 5px;

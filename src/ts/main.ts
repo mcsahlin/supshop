@@ -12,7 +12,7 @@ import { createHtml } from "./_functions";
 addSamplePack();
 const btnBack = document.getElementById("btn-back") as HTMLButtonElement;
 btnBack.addEventListener("click", history.back);
-const imgBox = document.querySelector(".prod__img-container") as HTMLDivElement;
+const imgBox = document.querySelector(".prod__img-box") as HTMLDivElement;
 
 // LOAD ID.img
 const img = createHtml("img", "prod__img") as HTMLImageElement;

@@ -15,40 +15,45 @@
     <button class="btn btn--back" type="button" id="btn-back"><div><img class="btn--back__img" src="./assets/icons/arrow-back-white.png" alt="Go to previous page" title="Previous page"/></div>Back</button>
     
     <!-- Images -->
-    <div class="prod__img-container container"></div> 
+    <div class="container--super">
+    <div class="prod__img-box container"></div> 
 
     <!-- Price and label -->
-    <div class="prod__info container">
-      <span class="info__price"></span>
-      <span class="info__lbl"></span>
-    </div>
-    
-    <!-- Options -->
-    <div class="prod__opt-box container">
-
-      <!-- Flavor -->
-      <div class="prod__opt">
-        <label class="prod__flav-lbl" for="prod__flav-sel">Choose flavor</label>
-        <select class="prod__flav-sel" id="prod__flav-sel" placeholder="Click-n-pick.."></select>
+    <div class="prod__details">
+      <div class="prod__info container">
+        <span class="info__price"></span>
+        <span class="info__lbl"></span>
       </div>
+      
+      <!-- Options -->
+      <div class="prod__opt-box container">
 
-      <!-- Quantity -->
-      <div class="prod__qty">
-        <label class="prod__qty-container" for="qty">
-          <!-- <div class="prod__qty-container"> -->
-            <button class="prod__qty-btn prod__qty-btn--incr" type="button">+</button>
-            <input id="qty" class="prod__qty-input" type="number" value="1"/>
-            <button class="prod__qty-btn  prod__qty-btn--decr" type="button">-</button>
-          <!-- </div> -->
-        </label>
-        <!-- Add to cart -->
-        <button class="btn prod__btn-buy btn--buy" type="button">Add to cart</button>
+        <!-- Flavor -->
+        <div class="prod__opt">
+          <label class="prod__flav-lbl" for="prod__flav-sel">Choose flavor</label>
+          <select class="prod__flav-sel" id="prod__flav-sel" placeholder="Click-n-pick.."></select>
+        </div>
+
+        <!-- Quantity -->
+        <div class="prod__qty">
+          <label class="prod__qty-container" for="qty">
+            <!-- <div class="prod__qty-container"> -->
+              <button class="prod__qty-btn prod__qty-btn--incr" type="button">+</button>
+              <input id="qty" class="prod__qty-input" type="number" value="1"/>
+              <button class="prod__qty-btn  prod__qty-btn--decr" type="button">-</button>
+            <!-- </div> -->
+          </label>
+          <!-- Add to cart -->
+          <button class="btn prod__btn-buy btn--buy" type="button">Add to cart</button>
+        </div>
+
       </div>
-
+      
     </div>
+  </div>
 
     <!-- Details -->
-    <article class="prod__description container">
+    <article class="prod__description container container--description">
       <p class="specs"></p>
     </article>
   </section>
