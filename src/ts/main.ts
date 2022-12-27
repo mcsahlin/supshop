@@ -50,6 +50,32 @@ if (inventory[0].isPills) {
   });
 }
 
+const qtyIncrement: HTMLButtonElement = document.querySelector(
+  ".prod__qty-btn--incr"
+) as HTMLButtonElement;
+const qtyDecrement: HTMLButtonElement = document.querySelector(
+  ".prod__qty-btn--decr"
+) as HTMLButtonElement;
+const qtyInput: HTMLInputElement = document.getElementById(
+  "qty"
+) as HTMLInputElement;
+
+qtyIncrement.addEventListener("click", () => {
+  let qty: number = parseInt(qtyInput.value);
+  qty < 20 ? qty++ : console.log("error");
+  qtyInput.value = qty.toString();
+});
+qtyDecrement.addEventListener("click", () => {
+  let qty: number = parseInt(qtyInput.value);
+  qty > 1 ? qty-- : console.log("error");
+  qtyInput.value = qty.toString();
+});
+qtyInput.addEventListener("blur", () => {
+  let qty: number = parseInt(qtyInput.value);
+  qty > 20 ? (qty = 20) : qty < 1 ? (qty = 1) : (qty = qty);
+  qtyInput.value = qty.toString();
+});
+
 // Item description
 const descriptionBox = document.querySelector(
   ".prod__description"
