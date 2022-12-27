@@ -3,6 +3,7 @@ html {
  box-sizing: border-box;
  overflow-x: hidden;
  font-size: large;
+ scroll-behavior: smooth;
 }
 
 body {
@@ -14,6 +15,8 @@ body {
  box-sizing: inherit;
  margin: 0;
  padding: 0;
+ color: v.$fg_color;
+ text-decoration: none;
 }
 
 ol, ul {
@@ -25,7 +28,7 @@ img {
  height: auto;
 }
 
-div {
+.container {
  background-color: #2a2b2c;
 }
 input, button, select {
