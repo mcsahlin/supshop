@@ -4,13 +4,14 @@ import {
   powderOptions,
   Product,
   inventory,
-} from "./modules/product";
-import { createHtml } from "./_functions";
+} from "./models/product";
+import { createHtml } from "./helpers";
 //#region Initialize PRODUCT PAGE
 addSamplePack();
 const btnBack = document.getElementById("btn-back") as HTMLButtonElement;
 btnBack.addEventListener("click", history.back);
 const imgBox = document.querySelector(".prod__img-box") as HTMLDivElement;
+
 // LOAD ID.img
 const img = createHtml("img", "prod__img") as HTMLImageElement;
 img.setAttribute("src", inventory[0].imgLink);
@@ -70,6 +71,7 @@ qtyInput.addEventListener("blur", () => {
   qtyInput.value = qty.toString();
 });
 //#endregion
+
 //#region Item description
 const descriptionBox = document.querySelector(
   ".prod__description"

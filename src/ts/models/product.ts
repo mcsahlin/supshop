@@ -1,4 +1,4 @@
-import { createHtml } from "../_functions";
+import { createHtml } from "../helpers";
 export class Product {
   id: string;
   price: string;
