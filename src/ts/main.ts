@@ -144,16 +144,18 @@ inventory.forEach((prodcut) => {
   //prod_link.setAttribute("target", "_blank");
   prod_link.innerHTML = prod_name;
 
+
   product_info.appendChild(prod_link);
   product_info.appendChild(pg);
   product_info.appendChild(add_to_cart);
   item_box_div.appendChild(product_info);
 
-  if (counter === 4) {
-    let banner_box = createHtml("div", "banner");
-    product_container.appendChild(banner_box);
+  if (counter === 6) {
     let slide_box = createHtml("div", "slide_box");
     product_container.appendChild(slide_box);
+    let banner_box = createHtml("div", "banner");
+    product_container.appendChild(banner_box);
+
   }
 
   product_container.appendChild(item_box_div);
@@ -204,10 +206,9 @@ function createCartButtons(id_number: number): HTMLElement {
   return btnContainer;
 }
 
-//minus current value
+//minus current value \
 function minusFromCurrentValue(currentElement: number) {
   let minus = document.getElementById("btn_minus_" + currentElement);
-  console.log(minus);
   if (minus !== null)
     minus.addEventListener("click", () => {
       let btn_minus = document.getElementById("input_number_"+currentElement) as HTMLInputElement;
@@ -223,7 +224,7 @@ function minusFromCurrentValue(currentElement: number) {
         let product_info = document.getElementById("product_info_" + currentElement);
         product_info?.appendChild(add_to_cart);
 
-      }
+      }   
     });
 }
 
@@ -239,3 +240,4 @@ function addToCurrentValue(currentElement: number): void {
       btn_plus.value = current_value.toString();
     });
 }
+ 

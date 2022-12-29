@@ -104,6 +104,17 @@ export function addSamplePack(): Product[] {
       false
     )
   );
+
+   inventory.push(
+    new Product(
+      "SOLID Nutrition Collagen, 230 g",
+      "149",
+      pillOptions,
+      lorem,
+      "https://www.tillskottsbolaget.se/bilder/artiklar/SOLID8593.jpg?m=1669844573",
+      true
+    )
+  );
   inventory.push(
     new Product(
       "Chaos Crew Turkesterone HIGH DOSE - 500 mg, 90 caps",
@@ -164,8 +175,20 @@ export function addSamplePack(): Product[] {
       true
     )
   );
+ 
+  inventory.push(
+    new Product(
+      "BioTechUSA Tribooster, 60 caps",
+      "229",
+      pillOptions,
+      lorem,
+      "https://www.tillskottsbolaget.se/bilder/artiklar/zoom/BIOTECH843_1.jpg?m=1625179915",
+      true
+    )
+  );
   return inventory;
 }
+
 
 // function samplePack() {
 //   let imgList:string[] = [
