@@ -1,10 +1,9 @@
 import { Product } from "./product";
-
-export class Cart {
+export class CartItem {
   item: Product;
-  qty: number;
-  constructor(item: Product, qty: number) {
+  quantity: number;
+  constructor(item: Product, quantity: number) {
     this.item = item;
-    this.qty = qty;
+    this.quantity = quantity;
   }
 }
