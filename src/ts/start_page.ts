@@ -1,8 +1,39 @@
+
 import { addSamplePack, Product} from "./models/product";
   import { createHtml, createHtmlElementWithClassAndId } from "./helpers";
+
   const inventory: Product[] = addSamplePack();
 
   // StartPage start________________________Y
+  
+  const swiper = new Swiper(".swiper", {
+    
+    
+    // Optional parameters
+    autoplay:{
+        delay:3000,
+        disableOnInteraction: true,
+    },
+ 
+    loop: true,
+  
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+  
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+
+  });
+
+
+  ///______________________________________________
+
   const product_container = createHtml("div", "product_box_start_page");
   let counter = 0; //counter for each products to render
   
@@ -42,7 +73,7 @@ import { addSamplePack, Product} from "./models/product";
   
     let prod_name = prodcut.label;
     let prod_link = createHtml("a", "a_prod_name");
-    let url = new URL(prodcut.id, "http://localhost:64980/"); //the port number is variable should be picked while starting parcel.
+    let url = new URL(prodcut.id, "http://localhost:1234/"); //the port number is variable should be picked while starting parcel.
     prod_link.setAttribute("href", url.toString());
     //prod_link.setAttribute("target", "_blank");
     prod_link.innerHTML = prod_name;

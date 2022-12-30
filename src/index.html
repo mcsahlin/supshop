@@ -7,6 +7,12 @@
   <link rel="stylesheet" href="scss/main.scss">
   <script defer src="ts/start_page.ts" type="module"></script>
   <title>Supshop - Health in a bottle</title>
+  <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+/>
+
+
 </head>
 
 <body>
@@ -40,15 +46,27 @@
 
   <!--StartPage start________________________Yo-->
 
-  <div class="hero_img"><img src="assets/startPage/protinBar.jpg"></div>
+  <div class="swiper">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide"><img src="assets/startPage/protinBar.jpg"></div>
+      <div class="swiper-slide"><img src="assets/startPage/GoldStandardWhey.jpg"></div>
+      <div class="swiper-slide"><img src="assets/startPage/proteinElevated.png"></div>
+      <div class="swiper-slide"><img src="assets/startPage/Choosingtherightproteinbanner.jpg"></div>
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+  
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
 
-  <!-- Images 
-    <div class="prod__img-container container"></div> -->
-
-  <!-- Price and label -->
 
   <span class="info_lbl"></span>
   <span class="info_price"></span>
+  <a href="index.html" class="slide_box"></a>
 
 
   <div id="footer">
@@ -87,7 +105,7 @@
     </div>
 
   </div>
-
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 </body>
 
 </html>

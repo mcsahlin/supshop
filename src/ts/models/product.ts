@@ -9,7 +9,7 @@ export class Product {
   isPowder: boolean = false;
   isPills: boolean = false;
   constructor(
-    id:string,
+    id: string,
     label: string,
     price: string,
     options: string[],
@@ -108,7 +108,7 @@ export function addSamplePack(): Product[] {
     )
   );
 
-   inventory.push(
+  inventory.push(
     new Product(
       "7114bd91-dd97-fffc-21de-7d6ea91f1e29",
       "SOLID Nutrition Collagen, 230 g",
@@ -185,7 +185,7 @@ export function addSamplePack(): Product[] {
       true
     )
   );
- 
+
   inventory.push(
     new Product(
       "c2213b55-516b-0702-87ba-657294783b58",
@@ -199,7 +199,6 @@ export function addSamplePack(): Product[] {
   );
   return inventory;
 }
-
 
 // function samplePack() {
 //   let imgList:string[] = [

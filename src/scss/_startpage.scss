@@ -9,36 +9,63 @@ input::-webkit-inner-spin-button {
 body {
     margin: 0;
     padding: 0;
-
-
 }
 
-.hero_img {
-    width: auto;
-    height: 200px;
-    margin-bottom: 55px;
-   
+//------------------------------------------
+
+
+.hero_img_slider{
+ width: auto;
+ height:auto;
+ background: rgb(5, 5, 5);
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ 
+}
+
+
+.swiper{
+    width:auto ;
+    height: fit-content;
 }
 
 @media screen and (min-width:v.$tablet_breakpoint) {
-    .hero_img {
-        width: 100%;
+    .swiper {
+        width: auto;
         height: auto;
-        margin-bottom: 0;
 
     }
 }
 
 
 @media screen and (min-width: v.$desktop_breakpoint) {
-    .hero_img {
+    .swiper {
         width: auto;
         height: auto;
     }
 }
 
+.swiper-slide img{
+    width: 100%;
+
+}
+
+
+.swiper .swiper-button-prev, .swiper .swiper-button-next{
+    color: white;
+}
+
+.swiper .swiper-pagination-bullet-active{
+    background: white;
+
+}
+
+//________________________________
+
+
 .product_box_start_page {
-    margin-top: 45px;
+    margin-top: 5px;
     width: auto;
     height: auto;
     background: #212122;
@@ -152,30 +179,24 @@ body {
 }
 
 
-.btn_add_to_cart {
-    border-radius: 8px;
-    background: #f58a07;
-    border: 0;
-    margin-right: 5px;
-    margin-left: 5px;
-}
-
 .banner {
-    width: 91%;
+    width: 92%;
     height: 70px;
     margin-top: 2px;
     margin-left: 13px;
     margin-right: 13px;
+    margin-bottom: 5px;
     background-image: url(../assets/startPage/myProteinOffer3.png);
     background-size: 75%;
 }
 
 @media screen and (min-width:v.$tablet_breakpoint) {
     .banner {
-        width: 94%;
+        width: 92%;
         height: 100px;
         background-image: url(../assets/startPage/myProteinOffer3.png);
         background-size: 40%;
+        margin-bottom: 10px;
 
         }
     }
@@ -196,7 +217,7 @@ body {
 .slide_box {
     margin-top: 5px;
     margin-bottom: 5px;
-    width: 40%;
+    width: 92%;
     height: 200px;
     background-image: url(../assets/startPage/excel-protein-banner-1024x347.jpg);
     background-size: 100%;
@@ -205,10 +226,10 @@ body {
 
 @media screen and (min-width:v.$tablet_breakpoint) {
     .slide_box {
-        width: 94%;
+        width: 92%;
         height: 400px;
-        background-image: url(../assets/startPage/excel-protein-banner-1024x347.jpg);
-        background-size: 100%;
+        background-image: url(../assets/startPage/excel-protein-banner.jpg);
+        background-size: 138%;
 
         }
     }
@@ -218,7 +239,7 @@ body {
     .slide_box {
         width: 50%;
         height: 300;
-        background-image: url(../assets/startPage/excel-protein-banner-1024x347.jpg);
+        background-image: url(../assets/startPage/tesla-whey-charger.jpg);
         background-size: 100%;
        margin-left: 10px;
 
@@ -242,11 +263,28 @@ body {
 
 }
 
+
+.btn_add_to_cart {
+    border-radius: 8px;
+    background: #f58a07;
+    border: 0;
+    margin-right: 5px;
+    margin-left: 5px;
+    &:hover {
+        border: 2px solid white;
+        cursor: pointer;
+      }
+}
+
 .btn_minus,
 .btn_plus {
     width: 30%;
     background: #f58a07;
-    border: 0;
+    border-radius: 5px;
+    &:hover {
+        border: 3px solid rgb(255, 255, 255);
+        cursor: pointer;
+      }
 }
 
 #footer {
@@ -329,9 +367,8 @@ body {
 
     @media screen and (min-width: v.$desktop_breakpoint) {
     #custmer_services {
-        width: 400px;
-        margin-right: 20px;
-     
+        width: 70%;
+        
         }
     }
 
@@ -352,7 +389,7 @@ body {
     @media screen and (min-width: v.$desktop_breakpoint) {
     #social_media {
             margin-right: 5%;
-            width: 300px;
+            width: 50%;
         }
     }
 
