@@ -1,38 +1,11 @@
 
 import { addSamplePack, Product} from "./models/product";
   import { createHtml, createHtmlElementWithClassAndId } from "./helpers";
-
+  import Swiper from 'swiper';
   const inventory: Product[] = addSamplePack();
 
   // StartPage start________________________Y
   
-  const swiper = new Swiper(".swiper", {
-    
-    
-    // Optional parameters
-    autoplay:{
-        delay:3000,
-        disableOnInteraction: true,
-    },
- 
-    loop: true,
-  
-    // If we need pagination
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-  
-    // Navigation arrows
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-
-  });
-
-
-  ///______________________________________________
 
   const product_container = createHtml("div", "product_box_start_page");
   let counter = 0; //counter for each products to render

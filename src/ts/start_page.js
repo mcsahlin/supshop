@@ -3,8 +3,26 @@ exports.__esModule = true;
 var product_1 = require("./models/product");
 var helpers_1 = require("./helpers");
 var inventory = (0, product_1.addSamplePack)();
-// StartPage start________________________Yo
-console.log(inventory);
+// StartPage start________________________Y
+var swiper = new Swiper(".swiper", {
+    // Optional parameters
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: true
+    },
+    loop: true,
+    // If we need pagination
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+    },
+    // Navigation arrows
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+    }
+});
+///______________________________________________
 var product_container = (0, helpers_1.createHtml)("div", "product_box_start_page");
 var counter = 0; //counter for each products to render
 //iterate over each product
@@ -26,7 +44,7 @@ inventory.forEach(function (prodcut) {
     add_to_cart.innerHTML = "Add to Cart";
     var prod_name = prodcut.label;
     var prod_link = (0, helpers_1.createHtml)("a", "a_prod_name");
-    var url = new URL(prodcut.id, "product.html/");
+    var url = new URL(prodcut.id, "http://localhost:1234/"); //the port number is variable should be picked while starting parcel.
     prod_link.setAttribute("href", url.toString());
     //prod_link.setAttribute("target", "_blank");
     prod_link.innerHTML = prod_name;
