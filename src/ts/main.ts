@@ -12,11 +12,11 @@ const btnBack = document.getElementById("btn-back") as HTMLButtonElement;
 btnBack.addEventListener("click", history.back);
 const imgBox = document.querySelector(".prod__img-box") as HTMLDivElement;
 
-//Get the url from document
-let baseUrl = document.URL;
 
-//Extract product id from the url
-let productId = baseUrl.substring(baseUrl.lastIndexOf("/")+1, baseUrl.length);
+//load product id from local storage
+let id = localStorage.getItem("product_id");
+let productId = id == null ? "" : id;
+localStorage.removeItem("product_id");
 
 function getCurrentProductById(productId:string):Product|null {
   for (let i = 0; i < inventory.length; i++) {

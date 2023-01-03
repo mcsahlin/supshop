@@ -34,13 +34,13 @@ function populateStaticData(product: Product) {
 
   let add_to_cart = createHtmlElementWithClassAndId("button", "btn_add_to_cart", "btn_add_to_cart_" + counter);
   add_to_cart.innerHTML = "Add to Cart";
-
   let prod_name = product.label;
   let prod_link = createHtml("a", "a_prod_name");
-  let url = new URL(product.id,"http://localhost:1234/"); //the port number is variable should be picked while starting parcel.
-  prod_link.setAttribute("href", url.toString());
-  //prod_link.setAttribute("target", "_blank");   
   prod_link.innerHTML = prod_name;
+  if(prod_link !== null){
+    prod_link.addEventListener("click", () => localStorage.setItem("product_id", product.id), false);
+    prod_link.setAttribute("href", "http://localhost:1234/product.html");
+  }
 
   product_info.appendChild(prod_link);
   product_info.appendChild(pg);
@@ -130,7 +130,6 @@ function addToCurrentValue(currentElement: number): void {
       let btn_plus = document.getElementById("input_number_" + currentElement) as HTMLInputElement;
       let current_value: number = Number(btn_plus.value) + 1;
       let product_in_cart = new Cart(inventory[currentElement], current_value);
-  
       addToCartBox(product_in_cart);
       btn_plus.value = current_value.toString();
     });
