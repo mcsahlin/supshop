@@ -7,9 +7,9 @@ let cart: CartItem[] = []; // FÖRSTÖR KOD
 // checkStorage() ? (cart = refreshCart() as CartItem[]) : (cart = []);
 
 //#region TEST
-if ((location.href = "index.html")) {
-  testFunc();
-}
+// if ((location.href = "index.html")) {
+//   testFunc();
+// }
 function getItem(): Product {
   let id = sessionStorage.getItem("id");
   let it: Product = inventory.find((obj) => {
