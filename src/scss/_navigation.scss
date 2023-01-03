@@ -74,3 +74,14 @@
   .menu__item:hover {
     background-color: #CFD8DC;
   }
+  @media screen and (min-width:v.$tablet_breakpoint) {
+    .menu__box{
+        
+    }
+    }
+
+
+
+@media screen and (min-width: v.$desktop_breakpoint) {
+    
+    }
