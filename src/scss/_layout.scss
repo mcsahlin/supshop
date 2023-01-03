@@ -1,17 +1,36 @@
 @use "mixins" as m;
 @use "variables" as v;
 
-.product-page {
- display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: center;
- color: white;
- width: 95vw;
- @include m.desktop {
-  max-width: 1200px;
+
+
+.page {
+  padding: 0;
   margin: 0 auto;
- }
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  &--start { 
+    //;
+
+  }
+  &--product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    width: 95vw;
+    @include m.desktop {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  }
+  &--cart {
+    //;
+  }
+  &--checkout {
+    //;
+  }
 }
 .container {
  display: flex;
