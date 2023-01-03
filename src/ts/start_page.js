@@ -3,8 +3,7 @@ exports.__esModule = true;
 var product_1 = require("./models/product");
 var helpers_1 = require("./helpers");
 var inventory = (0, product_1.addSamplePack)();
-// StartPage start________________________Yo
-console.log(inventory);
+// StartPage start________________________Y
 var product_container = (0, helpers_1.createHtml)("div", "product_box_start_page");
 var counter = 0; //counter for each products to render
 //iterate over each product
@@ -26,7 +25,7 @@ inventory.forEach(function (prodcut) {
     add_to_cart.innerHTML = "Add to Cart";
     var prod_name = prodcut.label;
     var prod_link = (0, helpers_1.createHtml)("a", "a_prod_name");
-    var url = new URL(prodcut.id, "product.html/");
+    var url = new URL(prodcut.id, "http://localhost:1234/"); //the port number is variable should be picked while starting parcel.
     prod_link.setAttribute("href", url.toString());
     //prod_link.setAttribute("target", "_blank");
     prod_link.innerHTML = prod_name;
@@ -48,22 +47,27 @@ if (footer !== null) {
     product_container.appendChild(footer);
 }
 document.body.appendChild(product_container);
-var btn_list = document.getElementsByClassName("btn_add_to_cart");
-var _loop_1 = function (i) {
-    btn_list[i].addEventListener("click", function () {
-        var _a;
-        var info = document.getElementById("product_info_" + i);
-        var to_be_removed = document.getElementById("btn_add_to_cart_" + i);
-        (_a = to_be_removed.parentNode) === null || _a === void 0 ? void 0 : _a.removeChild(to_be_removed);
-        var btnContainer = createCartButtons(i);
-        info.appendChild(btnContainer);
-        minusFromCurrentValue(i);
-        addToCurrentValue(i);
-    });
-};
-for (var i = 0; i < btn_list.length; i++) {
-    _loop_1(i);
+var chiled_removed = { isRemoved: false, element: document.getElementById("btn_container_0") };
+function addToCart() {
+    var btn_list = document.getElementsByClassName("btn_add_to_cart");
+    var _loop_1 = function (i) {
+        btn_list[i].addEventListener("click", function () {
+            var _a;
+            var info = document.getElementById("product_info_" + i);
+            var to_be_removed = document.getElementById("btn_add_to_cart_" + i);
+            (_a = to_be_removed.parentNode) === null || _a === void 0 ? void 0 : _a.removeChild(to_be_removed);
+            //btn_list.item. = 0;
+            var btnContainer = createCartButtons(i);
+            info.appendChild(btnContainer);
+            minusFromCurrentValue(i);
+            addToCurrentValue(i);
+        });
+    };
+    for (var i = 0; i < btn_list.length; i++) {
+        _loop_1(i);
+    }
 }
+addToCart();
 //add to Cart buttons
 function createCartButtons(id_number) {
     var btnContainer = (0, helpers_1.createHtmlElementWithClassAndId)("div", "button_container", "btn_container_" + id_number);
@@ -82,6 +86,7 @@ function createCartButtons(id_number) {
 //minus current value \
 function minusFromCurrentValue(currentElement) {
     var minus = document.getElementById("btn_minus_" + currentElement);
+    var to_remove;
     if (minus !== null)
         minus.addEventListener("click", function () {
             var _a;
@@ -89,13 +94,15 @@ function minusFromCurrentValue(currentElement) {
             var current_value = Number(btn_minus.value) - 1;
             btn_minus.value = current_value.toString();
             if (current_value == 0) {
-                var minus_1 = document.getElementById("btn_container_" + currentElement);
-                (_a = minus_1.parentNode) === null || _a === void 0 ? void 0 : _a.removeChild(minus_1);
+                var to_remove_1 = document.getElementById("btn_container_" + currentElement);
+                (_a = to_remove_1.parentNode) === null || _a === void 0 ? void 0 : _a.removeChild(to_remove_1);
                 var add_to_cart = (0, helpers_1.createHtmlElementWithClassAndId)("button", "btn_add_to_cart", "btn_add_to_cart_" + currentElement);
                 add_to_cart.innerHTML = "Add to Cart";
-                console.log(add_to_cart);
                 var product_info = document.getElementById("product_info_" + currentElement);
                 product_info === null || product_info === void 0 ? void 0 : product_info.appendChild(add_to_cart);
+                chiled_removed.isRemoved = true;
+                chiled_removed.element = to_remove_1;
+                addToCart();
             }
         });
 }

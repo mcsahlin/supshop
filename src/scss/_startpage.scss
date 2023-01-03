@@ -11,58 +11,46 @@ body {
     padding: 0;
 }
 
-//------------------------------------------
-
-
-.hero_img_slider{
- width: auto;
- height:auto;
- background: rgb(5, 5, 5);
- display: flex;
- align-items: center;
- justify-content: center;
- 
+.header{
+    width: 100%;
+    height: 60px;
+    background: #2c2b2b;
 }
 
 
-.swiper{
-    width:auto ;
-    height: fit-content;
+.hero_img{
+    width: 92%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    height: 200px;
 }
-
 @media screen and (min-width:v.$tablet_breakpoint) {
-    .swiper {
-        width: auto;
-        height: auto;
-
+    .hero_img {
+        width: 92%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 40px;
+        margin-top: 40px;
+        height: 500px;
     }
 }
 
 
 @media screen and (min-width: v.$desktop_breakpoint) {
-    .swiper {
-        width: auto;
-        height: auto;
+    .hero_img {
+    width: 91%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    height: 700px;
+    margin-bottom: 40px;
+
     }
 }
-
-.swiper-slide img{
-    width: 100%;
-
-}
-
-
-.swiper .swiper-button-prev, .swiper .swiper-button-next{
-    color: white;
-}
-
-.swiper .swiper-pagination-bullet-active{
-    background: white;
-
-}
-
-//________________________________
-
 
 .product_box_start_page {
     margin-top: 5px;
@@ -134,13 +122,15 @@ body {
 
 .img_item {
     border-radius: 50%;
-    margin-left: 25px;
+    margin-left:auto;
+    margin-right: auto;
     }
     @media screen and (min-width:v.$tablet_breakpoint) {
         .img_item {
             width: 40%;
             height: 40%;
-           
+            margin-left:auto;
+            margin-right: auto;
     
         }
     }
@@ -150,6 +140,8 @@ body {
         .img_item {
             width: 180px;
             height: 180px;
+            margin-left:auto;
+            margin-right: auto;
         }
     }
 
@@ -161,6 +153,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .a_prod_name {
@@ -241,7 +235,7 @@ body {
         height: 300;
         background-image: url(../assets/startPage/tesla-whey-charger.jpg);
         background-size: 100%;
-       margin-left: 10px;
+        margin-left: 10px;
 
         }
     }
@@ -266,7 +260,7 @@ body {
 
 .btn_add_to_cart {
     border-radius: 8px;
-    background: #f58a07;
+    background: #008000;
     border: 0;
     margin-right: 5px;
     margin-left: 5px;
@@ -279,8 +273,9 @@ body {
 .btn_minus,
 .btn_plus {
     width: 30%;
-    background: #f58a07;
+    background: #008000;
     border-radius: 5px;
+    border: 0;
     &:hover {
         border: 3px solid rgb(255, 255, 255);
         cursor: pointer;
@@ -296,7 +291,7 @@ body {
     flex-direction: column;
     gap: 30px;
     align-items: center;
-    margin-top: 5px;
+    margin-top: 70px;
     padding-bottom: 50px;
 }
 
@@ -309,6 +304,8 @@ body {
         gap: 30px;
         align-items: center;
         padding: 10px;
+        margin-top: 80px;
+
     }
 }
 
@@ -321,6 +318,7 @@ body {
         flex-direction: row;
         gap: 25%;
         align-items: center;
+        margin-top: 100px;
 
     }
 }
