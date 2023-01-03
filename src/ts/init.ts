@@ -6,3 +6,5 @@ function init(page: string) {
     case "cart.html":
   }
 }
+// 1. Toggle all classes off
+// 2. Toggle selected class on
