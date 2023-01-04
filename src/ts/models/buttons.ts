@@ -1,8 +1,9 @@
 //#region Add To Cart
 
-import { Product, inventory } from "./product";
+import { Cart } from "./cart";
+import { inventory } from "./product";
 
-const cart: Product[] = [];
+const cart: Cart[] = [];
 // Initialize buy btn
 const toCartBtn: HTMLButtonElement = document.getElementById(
   "prod-to-cart"
@@ -17,16 +18,15 @@ export function handleToCart(): void {
   toCart(id, qty);
 }
 function toCart(id: string, qty: number): void {
-  let item: Product = inventory.map((item) => {
-    if (id === item.id) {
-      return item as Product;
-    } else {
-      console.log("Error");
+  for (let i = 0; i < inventory.length; i++) {
+    if (inventory[i].id == id) {
+      cart.push(new Cart(inventory[i], qty));
+      break;
     }
-  });
-  for (let i = 0; i < qty; i++) {
-    cart.push(item);
   }
+  // inventory
+  //   .filter((product) => product.id == id)
+  //   .forEach((product) => cart.push(new Cart(product, qty)));
 }
 
 //#endregion

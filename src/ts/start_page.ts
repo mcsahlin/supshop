@@ -11,7 +11,7 @@ const product_container = createHtml("div", "product_box_start_page");
 
 let counter = 0;
 //iterate over each product
-inventory.forEach((prodcut) => populateStaticData(prodcut));
+inventory.forEach((product) => populateStaticData(product));
 
 function populateStaticData(product: Product) {
   let item_box_div = createHtmlElementWithClassAndId(
@@ -19,6 +19,12 @@ function populateStaticData(product: Product) {
     "product_box",
     "product_box_" + counter
   );
+
+  //#region PREP for turning whole div to link
+  // item_box_div.addEventListener("click", () =>
+  //   localStorage.setItem("product_id", item_box_div.id)
+  // );
+  //#endregion
 
   //load image from product object
   let img = new Image(120, 120);
@@ -48,13 +54,13 @@ function populateStaticData(product: Product) {
   let prod_name = product.label;
   let prod_link = createHtml("a", "a_prod_name");
   prod_link.innerHTML = prod_name;
+
   if (prod_link !== null) {
-    prod_link.addEventListener(
-      "click",
-      () => localStorage.setItem("product_id", product.id),
-      false
-    );
-    prod_link.setAttribute("href", "http://localhost:1234/product.html");
+    prod_link.addEventListener("click", () => {
+      localStorage.setItem("product_id", product.id), false;
+      console.log(localStorage.getItem("product_id"));
+      prod_link.setAttribute("href", "http://localhost:1234/product.html");
+    });
   }
 
   product_info.appendChild(prod_link);

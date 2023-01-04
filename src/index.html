@@ -14,8 +14,9 @@
   <div class="header">
     <div id="shopping_cart"></div>
   <div class="hamburger-menu">
-    <input id="menu__toggle" type="checkbox" />
-    <label class="menu__btn" for="menu__toggle">
+   
+   <label class="menu__btn" for="menu__toggle">
+     <input title="Menu" id="menu__toggle" type="checkbox" />
       <span></span>
     </label>
 
@@ -31,7 +32,67 @@
   <!--StartPage start________________________Yo-->
 
   <img class="hero_img" src="../src/assets/startPage/GoldStandardWhey.jpg" alt="Italian Trulli">
-  
+  <main id="main" class="page page--start page--product page--cart page--checkout page--confirmation">
+   <section class="prod">
+     <div id="result"></div>
+     <!-- Return to previous page -->
+     <button class="btn btn--back" type="button" id="btn-back"><div><img class="btn--back__img" src="./assets/icons/arrow-back-white.png" alt="Go to previous page" title="Previous page"/></div>Back</button>
+     
+     <!-- Images -->
+     <div class="container--super">
+     <div class="prod__img-box container"></div> 
+ 
+     <!-- Price and label -->
+     <div class="prod__details">
+       <div class="prod__info container">
+         <span class="info__price"></span>
+         <span class="info__lbl"></span>
+       </div>
+       
+       <!-- Options -->
+       <div class="prod__opt-box container">
+ 
+         <!-- Flavor -->
+         <div class="prod__opt">
+           <label class="prod__flav-lbl" for="prod__flav-sel">Choose flavor</label>
+           <select class="prod__flav-sel" id="prod__flav-sel" placeholder="Click-n-pick.."></select>
+         </div>
+ 
+         <!-- Quantity -->
+         <div class="prod__qty">
+           <label class="prod__qty-container" for="qty">
+             <!-- <div class="prod__qty-container"> -->
+               <button class="prod__qty-btn  prod__qty-btn--decr" type="button">-</button>
+               <input id="qty" class="prod__qty-input" type="number" value="1"/>
+               <button id="prod-to-cart" class="prod__qty-btn prod__qty-btn--incr" type="button">+</button>
+             <!-- </div> -->
+           </label>
+           <!-- Add to cart -->
+           <button class="btn prod__btn-buy btn--buy" type="button">Add to cart</button>
+         </div>
+ 
+       </div>
+       
+     </div>
+   </div>
+ 
+     <!-- Details -->
+     <article class="prod__description container container--description">
+       <p class="specs"></p>
+     </article>
+   </section>
+ 
+   <!-- Promos -->
+   <section class="promo-section">
+     <h3 class="promo__heading">Others also bought:</h3>
+     <div class="promo container">
+       <!-- <a href="#" class="promo__link"><span class="promo__prod-1"></span></a>
+       <a href="#" class="promo__link"><span class="promo__prod-2"></span></a>
+       <a href="#" class="promo__link"><span class="promo__prod-3"></span></a>
+       <a href="#" class="promo__link"><span class="promo__prod-4"></span></a> -->
+     </div>
+   </section>
+ </main>
   <div id="footer">
     <div id="info">
       <h3>INFORMATION</h3>
@@ -53,15 +114,15 @@
       <h3>SOCIAL MEDIA</h3>
         <div class="footer_icon">
           
-          <a href="https://www.instagram.com/" target="_blank"><img src="../src/assets/startPage/icons/instagram_icon.png"
+          <a title="Instagram" href="https://www.instagram.com/" target="_blank" rel="noopener"><img src="../src/assets/startPage/icons/instagram_icon.png"
               alt="instagram_icon" width="40px" height="40px"></a>
-          <a href="https://www.facebook.com/" target="_blank"><img src="../src/assets/startPage/icons/facebook_icon.png"
+          <a title="Facebook" href="https://www.facebook.com/" target="_blank" rel="noopener"><img src="../src/assets/startPage/icons/facebook_icon.png"
               alt="facebook_icon" width="40px" height="40px"></a>
-          <a href="https://www.twitter.com/" target="_blank"><img src="../src/assets/startPage/icons/twitter_icon.png"
+          <a title="Twitter" href="https://www.twitter.com/" target="_blank" rel="noopener"><img src="../src/assets/startPage/icons/twitter_icon.png"
               alt="twitter_icon" width="40px" height="40px"></a>
-          <a href="https://www.Youtube.com/" target="_blank"><img src="../src/assets/startPage/icons/youtubei_icon.png"
+          <a title="Youtube" href="https://www.Youtube.com/" target="_blank" rel="noopener"><img src="../src/assets/startPage/icons/youtubei_icon.png"
               alt="youtubei_icon" width="40px" height="40px"></a>
-          <a href="https://www.pinterest.com/" target="_blank"><img src="../src/assets/startPage/icons/pinterest_icon.png"
+          <a title="Pinterest" href="https://www.pinterest.com/" target="_blank" rel="noopener"><img src="../src/assets/startPage/icons/pinterest_icon.png"
               alt="pinterest_icon" width="40px" height="40px"></a>
         </div>
 
