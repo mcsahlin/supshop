@@ -4,9 +4,14 @@ import {
   powderOptions,
   Product,
 } from "./models/product";
-import { createHtml, createHtmlElementWithClassAndId } from "./helpers";
+import {
+  createHtml,
+  createHtmlElementWithClassAndId,
+  getCurrentProductById,
+} from "./helpers";
 import { Cart } from "./models/cart";
-const inventory: Product[] = addSamplePack();
+import { generateSuggestions } from "./services/promos";
+export const inventory: Product[] = addSamplePack();
 const cartValue: Cart[] = [];
 let Page = {
   home: "home",
@@ -23,8 +28,8 @@ function init() {
 }
 let page = Page.home;
 load(null, page);
-function load(e:Event?, page: string, id:string="") {
-  if(e){
+function load(e: Event | null, page: string, id: string = "") {
+  if (e) {
     e.preventDefault();
   }
   init();
@@ -34,7 +39,6 @@ function load(e:Event?, page: string, id:string="") {
 function printPage() {
   switch (page) {
     case Page.home:
-      
       // StartPage start________________________Y
       const product_container = createHtml("div", "product_box_start_page");
       //counter for each products to render
@@ -80,11 +84,8 @@ function printPage() {
         if (prod_link !== null) {
           prod_link.addEventListener("click", (e) => {
             sessionStorage.setItem("product_id", product.id);
-            
-              goTo(Page.details);
-            
-           
- 
+
+            goTo(Page.details);
           });
         }
         product_info.appendChild(prod_link);
@@ -252,161 +253,123 @@ function printPage() {
         );
       }
       break;
-
-
     case Page.details:
-     
-        let productId = sessionStorage.getItem("product_id");
-        if(productId){
-       
-          let product: Product;
-
-          let find = getCurrentProductById(productId);
-          if (find){
-            product = find;
-            const imgBox = document.querySelector(
-              ".prod__img-box"
-            ) as HTMLDivElement;
-            const img = createHtml("img", "prod__img") as HTMLImageElement;
-            img.setAttribute("src", product.imgLink);
-            img.setAttribute("alt", "Product image");
-            imgBox.appendChild(img);
-            //#region Price and label
-            const itemInfo = document.querySelector(
-              ".prod__info"
-            ) as HTMLDivElement;
-            const itemPrice = document.querySelector(
-              ".info__price"
-            ) as HTMLSpanElement;
-            const itemLabel = document.querySelector(
-              ".info__lbl"
-            ) as HTMLSpanElement;
-            itemPrice.innerHTML = product.price + " kr";
-            itemLabel.innerHTML = product.label + " || " + inventory[0].options;
-            itemInfo.appendChild(itemPrice);
-            itemInfo.appendChild(itemLabel);
-            //#endregion
-            //#region Item options
-            const flavorSel = document.querySelector(
-              ".prod__flav-sel"
-            ) as HTMLSelectElement;
-            if (product.isPills) {
-              pillOptions.map((opt) => {
-                let newOpt = createHtml("option", "pill-opt");
-                newOpt.innerHTML = opt;
-                flavorSel.appendChild(newOpt);
-              });
-            } else {
-              powderOptions.map((opt) => {
-                let newOpt = createHtml("option", "pill-opt") as HTMLOptionElement;
-                newOpt.innerHTML = opt;
-                flavorSel.appendChild(newOpt);
-              });
-            }
-            //#endregion
-            //#region QUANTITY SELECTION
-            const qtyIncrement: HTMLButtonElement = document.querySelector(
-              ".prod__qty-btn--incr"
-            ) as HTMLButtonElement;
-            const qtyDecrement: HTMLButtonElement = document.querySelector(
-              ".prod__qty-btn--decr"
-            ) as HTMLButtonElement;
-            const qtyInput: HTMLInputElement = document.getElementById(
-              "qty"
-            ) as HTMLInputElement;
-            qtyIncrement.addEventListener("click", () => {
-              let qty: number = parseInt(qtyInput.value);
-              qty < 20 ? qty++ : console.log("error");
-              qtyInput.value = qty.toString();
+      const btnBack = document.getElementById("btn-back") as HTMLButtonElement;
+      btnBack.addEventListener("click", window.history.back);
+      let productId = sessionStorage.getItem("product_id");
+      if (productId) {
+        let product: Product;
+        let found = getCurrentProductById(productId, inventory);
+        if (found) {
+          product = found;
+          const imgBox = document.querySelector(
+            ".prod__img-box"
+          ) as HTMLDivElement;
+          const img = createHtml("img", "prod__img") as HTMLImageElement;
+          img.setAttribute("src", product.imgLink);
+          img.setAttribute("alt", "Product image");
+          imgBox.appendChild(img);
+          //#region Price and label
+          const itemInfo = document.querySelector(
+            ".prod__info"
+          ) as HTMLDivElement;
+          const itemPrice = document.querySelector(
+            ".info__price"
+          ) as HTMLSpanElement;
+          const itemLabel = document.querySelector(
+            ".info__lbl"
+          ) as HTMLSpanElement;
+          itemPrice.innerHTML = product.price + " kr";
+          itemLabel.innerHTML = product.label + " || " + inventory[0].options;
+          itemInfo.appendChild(itemPrice);
+          itemInfo.appendChild(itemLabel);
+          //#endregion
+          //#region Item options
+          const flavorSel = document.querySelector(
+            ".prod__flav-sel"
+          ) as HTMLSelectElement;
+          if (product.isPills) {
+            pillOptions.map((opt) => {
+              let newOpt = createHtml("option", "pill-opt");
+              newOpt.innerHTML = opt;
+              flavorSel.appendChild(newOpt);
             });
-            qtyDecrement.addEventListener("click", () => {
-              let qty: number = parseInt(qtyInput.value);
-              qty > 1 ? qty-- : console.log("error");
-              qtyInput.value = qty.toString();
+          } else {
+            powderOptions.map((opt) => {
+              let newOpt = createHtml(
+                "option",
+                "pill-opt"
+              ) as HTMLOptionElement;
+              newOpt.innerHTML = opt;
+              flavorSel.appendChild(newOpt);
             });
-            qtyInput.addEventListener("blur", () => {
-              let qty: number = parseInt(qtyInput.value);
-              qty > 20 ? (qty = 20) : qty < 1 ? (qty = 1) : (qty = qty);
-              qtyInput.value = qty.toString();
-            });
-            //#endregion
-            //#region Item description
-            const descriptionBox = document.querySelector(
-              ".prod__description"
-            ) as HTMLDivElement;
-            descriptionBox.innerHTML = product.description;
           }
-          const btnBack = document.getElementById("btn-back") as HTMLButtonElement;
-          btnBack.addEventListener("click", window.history.back);
-         
-       
-  
-  
-  
-          }
-          }
-          
-         
-  
-          
-       
+          //#endregion
+          //#region QUANTITY SELECTION
+          const qtyIncrement: HTMLButtonElement = document.querySelector(
+            ".prod__qty-btn--incr"
+          ) as HTMLButtonElement;
+          const qtyDecrement: HTMLButtonElement = document.querySelector(
+            ".prod__qty-btn--decr"
+          ) as HTMLButtonElement;
+          const qtyInput: HTMLInputElement = document.getElementById(
+            "qty"
+          ) as HTMLInputElement;
+          qtyIncrement.addEventListener("click", () => {
+            let qty: number = parseInt(qtyInput.value);
+            qty < 20 ? qty++ : console.log("error");
+            qtyInput.value = qty.toString();
+          });
+          qtyDecrement.addEventListener("click", () => {
+            let qty: number = parseInt(qtyInput.value);
+            qty > 1 ? qty-- : console.log("error");
+            qtyInput.value = qty.toString();
+          });
+          qtyInput.addEventListener("blur", () => {
+            let qty: number = parseInt(qtyInput.value);
+            qty > 20 ? (qty = 20) : qty < 1 ? (qty = 1) : (qty = qty);
+            qtyInput.value = qty.toString();
+          });
+          //#endregion
+          //#region Item description
+          const descriptionBox = document.querySelector(
+            ".prod__description"
+          ) as HTMLDivElement;
+          descriptionBox.innerHTML = product.description;
+        }
+      } // END if found
+      generateSuggestions();
       //#endregion
-      //#region Product suggestions
-      const promo1 = document.querySelector(
-        ".promo__prod-1"
-      ) as HTMLSpanElement;
-      const promo2 = document.querySelector(
-        ".promo__prod-2"
-      ) as HTMLSpanElement;
-      const promo3 = document.querySelector(
-        ".promo__prod-3"
-      ) as HTMLSpanElement;
-      const promo4 = document.querySelector(
-        ".promo__prod-4"
-      ) as HTMLSpanElement;
-      let promoSlots = [] as HTMLSpanElement[];
-      promoSlots.push(promo1, promo2, promo3, promo4);
-      for (let i = 0; i < promoSlots.length; i++) {
-        let img = createHtml("img", "promo__prod-img");
-        img.setAttribute("src", inventory[i].imgLink);
-        let txt = createHtml("span", "promo__prod-txt");
-        txt.innerHTML = inventory[i].label;
-        promoSlots[i].appendChild(img);
-        promoSlots[i].appendChild(txt);
-      }
-
-      
-
-      function getId() {
-        console.log(localStorage.getItem("product_id"));
-        let id: string | null = localStorage.getItem("product_id") || null;
-        // let productId = id == null ? "" : id;
-        localStorage.removeItem("product_id");
-        return id;
-      }
-      function getCurrentProductById(productId: string): Product | null {
-        inventory.find((obj) => {
-          return obj.id === productId;
-        });
-        return null;
-      }
-      break;
-
-    case Page.cart:
-      
-      break;
-
-    case Page.checkout:
-      break;
-
-    case Page.confirmation:
+      //#region Product suggestions (OLD)
+      // const promo1 = document.querySelector(
+      //   ".promo__prod-1"
+      // ) as HTMLSpanElement;
+      // const promo2 = document.querySelector(
+      //   ".promo__prod-2"
+      // ) as HTMLSpanElement;
+      // const promo3 = document.querySelector(
+      //   ".promo__prod-3"
+      // ) as HTMLSpanElement;
+      // const promo4 = document.querySelector(
+      //   ".promo__prod-4"
+      // ) as HTMLSpanElement;
+      // let promoSlots = [] as HTMLSpanElement[];
+      // promoSlots.push(promo1, promo2, promo3, promo4);
+      // for (let i = 0; i < promoSlots.length; i++) {
+      //   let img = createHtml("img", "promo__prod-img");
+      //   img.setAttribute("src", inventory[i].imgLink);
+      //   let txt = createHtml("span", "promo__prod-txt");
+      //   txt.innerHTML = inventory[i].label;
+      //   promoSlots[i].appendChild(img);
+      //   promoSlots[i].appendChild(txt);
+      // }
+      //#endregion
       break;
 
     default:
       break;
   }
-
-
+}
 
 function goTo(targetPage: string) {
   page = targetPage;

@@ -1,3 +1,5 @@
+import { Product } from "./models/product";
+
 export function createHtml(htmlTag: string, className: string): HTMLElement {
   const newElement = document.createElement(htmlTag) as HTMLElement;
   newElement.classList.add(className);
@@ -13,4 +15,20 @@ export function createHtmlElementWithClassAndId(
   htmlElement.setAttribute("id", idName);
 
   return htmlElement;
+}
+export function getId(): string | null {
+  console.log(sessionStorage.getItem("product_id"));
+  let id: string | null = localStorage.getItem("product_id") || null;
+  // let productId = id == null ? "" : id;
+  localStorage.removeItem("product_id");
+  return id;
+}
+export function getCurrentProductById(
+  productId: string,
+  sourceList: Product[]
+): Product | null {
+  sourceList.find((obj) => {
+    return obj.id === productId;
+  });
+  return null;
 }
