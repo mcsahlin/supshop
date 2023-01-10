@@ -1,6 +1,6 @@
 dist
 node_modules
 .parcel-cache
-juice
+src/juice
 wireframes
 src/ts/page_product.ts
