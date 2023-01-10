@@ -3,3 +3,4 @@ node_modules
 .parcel-cache
 juice
 wireframes
+src/ts/page_product.ts
