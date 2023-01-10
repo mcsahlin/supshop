@@ -25,11 +25,6 @@ let productId = id == null ? '' : id;
 localStorage.removeItem('product_id');
 
 function getCurrentProductById(productId: string): Product | undefined {
-  let match: Product | undefined = inventory.find((p) => {
-    p.id === productId ? match === p : match == null;
-  });
-  return match;
-
   for (let i = 0; i < inventory.length; i++) {
     if (inventory[i].id === productId) {
       return inventory[i];
