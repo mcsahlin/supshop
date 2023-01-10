@@ -43,8 +43,8 @@ function newId(): string {
     s4()
   );
 }
-const pillOptions = ['60 pcs', '120 pcs'] as string[];
-const powderOptions = [
+export const pillOptions = ['60 pcs', '120 pcs'] as string[];
+export const powderOptions = [
   'Chocolate',
   'Banana',
   'Caramel',

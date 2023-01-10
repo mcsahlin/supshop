@@ -1,33 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="scss/main.scss" />
-    <script defer src="ts/main.ts" type="module"></script>
-    <title>Product page</title>
-  </head>
-  <body>
-    <main class="product-page">
-      <section class="prod">
-        <div id="result"></div>
-        <!-- Return to previous page -->
-        <button class="btn btn--back" type="button" id="btn-back">
-          <div>
-            <img
-              class="btn--back__img"
-              src="./assets/icons/arrow-back-white.png"
-              alt="Go to previous page"
-              title="Previous page"
-            />
-          </div>
-          Back
-        </button>
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="scss/main.scss">
+ <script defer src="ts/main.ts" type="module"></script>
+ <title>Product page</title>
+</head>
+<body>
+ <main class="product-page">
+  <section class="prod">
+    
+    <!-- Return to previous page -->
+    <button onclick="window.history.back()" class="btn btn--back" type="button" id="btn-back"><div><img class="btn--back__img" src="./assets/icons/arrow-back-white.png" alt="Go to previous page" title="Previous page"/></div>Back</button>
+    
+    <!-- Images -->
+    <div class="container--super">
+    <div class="prod__img-box container"></div> 
 
-        <!-- Images -->
-        <div class="container--super">
-          <div class="prod__img-box container"></div>
+          <!-- Price and label -->
+          <div class="prod__details">
+            <div class="prod__info container">
+              <span class="info__price"></span>
+              <span class="info__lbl"></span>
+            </div>
 
+            <!-- Options -->
+            <div class="prod__opt-box container">
+              <!-- Flavor -->
+              <div class="prod__opt">
+                <label class="prod__flav-lbl" for="prod__flav-sel"
+                  >Choose flavor</label
+                >
+                <select
+                  class="prod__flav-sel"
+                  id="prod__flav-sel"
+                  placeholder="Click-n-pick.."
+                ></select>
+              </div>
           <!-- Price and label -->
           <div class="prod__details">
             <div class="prod__info container">
