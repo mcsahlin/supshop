@@ -1,7 +1,7 @@
 import { addSamplePack, Product } from './models/product';
 import { createHtml, createHtmlElementWithClassAndId } from './helpers';
 import { CartItem } from './models/cartitem';
-import { sections } from './main';
+import { init, page, sections } from './main';
 const inventory: Product[] = addSamplePack();
 const cartValue: CartItem[] = [];
 
@@ -49,16 +49,14 @@ export function loadHome() {
     let prod_name = product.label;
     let prod_link = createHtml('a', 'a_prod_name');
     prod_link.innerHTML = prod_name;
+    prod_link.setAttribute(
+      'href',
+      `http://localhost:1234/product/${product.id}`
+    );
     if (prod_link !== null) {
-      prod_link.addEventListener(
-        'click',
-        () => localStorage.setItem('product_id', product.id),
-        false
-      );
-      prod_link.setAttribute(
-        'href',
-        `http://localhost:1234/product/${product.id}`
-      );
+      prod_link.addEventListener('click', () => {
+        init(page.product);
+      });
 
       product_info.appendChild(prod_link);
       product_info.appendChild(pg);

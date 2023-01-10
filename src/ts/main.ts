@@ -5,7 +5,7 @@ import { CartItem } from './models/cartitem';
 import { loadProduct } from './page_product';
 import { Page } from './models/pages';
 const d = document;
-const page: Page = new Page();
+export const page: Page = new Page();
 export const inventory: Product[] = addSamplePack();
 export const cart: CartItem[] = [];
 // Create page elements and store in list
@@ -23,7 +23,7 @@ sections.map((s) => {
   s.style.display = 'none';
 });
 init();
-function init(dest: string = 'home') {
+export function init(dest: string = 'home') {
   sections.map((s) => {
     s.className.substring(11) === dest ? display(s, true) : display(s, false);
     console.log(s.className.substring(11));
@@ -31,17 +31,19 @@ function init(dest: string = 'home') {
   loadPage(dest);
 }
 function display(el: HTMLElement, activate: boolean) {
-  activate ? (el.style.display = 'block') : (el.style.display = 'none');
+  activate ? (el.style.display = 'flex') : (el.style.display = 'none');
 }
-export function loadPage(dest: string, product?: Product) {
+function loadPage(dest: string, product?: Product) {
   switch (dest) {
     case page.home:
       loadHome();
       break;
     case page.product:
-      if (product) {
-        // loadProduct(product);
+      if (!product) {
+        break;
+      } else {
+        loadProduct(product);
+        break;
       }
-      break;
   }
 }
