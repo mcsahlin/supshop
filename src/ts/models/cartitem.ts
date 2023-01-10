@@ -1,12 +1,21 @@
 import { cart } from '../main';
 import { Product } from './product';
 
-export class CartItem {
-  item: Product;
-  quantity: number;
-  constructor(item: Product, quantity: number) {
-    this.item = item;
+export class CartItem extends Product {
+  quantity: number = NaN;
+  totalPrice: number = NaN;
+  constructor(p: Product, quantity: number) {
+    super(
+      p.id,
+      p.label,
+      p.price,
+      p.options,
+      p.description,
+      p.imgLink,
+      p.isPills
+    );
     this.quantity = quantity;
+    this.totalPrice = p.price * quantity;
   }
 }
 function setCartData(toCart: object) {
