@@ -1,11 +1,8 @@
 @use "mixins" as m;
 @use "variables" as v;
 
-.main {
+#main {
   .page {
-    &--home {
-
-    }
     &--product {
         display: block;
         display: flex;

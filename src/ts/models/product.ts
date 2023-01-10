@@ -6,16 +6,13 @@ export class Product {
   options: string[]; // If isPowder:
   description: string;
   imgLink: string;
-  isPowder: boolean = false;
-  isPills: boolean = false;
   constructor(
     id: string,
     label: string,
     price: number,
     options: string[],
     description: string,
-    imgLink: string,
-    isPills: boolean
+    imgLink: string
   ) {
     this.id = id;
     this.imgLink = imgLink;
@@ -23,24 +20,6 @@ export class Product {
     this.label = label;
     this.options = options;
     this.description = description;
-    this.isPills = isPills;
-  }
-}
-export class CartItem extends Product {
-  quantity: number = NaN;
-  totalPrice: number = NaN;
-  constructor(p: Product, quantity: number) {
-    super(
-      p.id,
-      p.label,
-      p.price,
-      p.options,
-      p.description,
-      p.imgLink,
-      p.isPills
-    );
-    this.quantity = quantity;
-    this.totalPrice = p.price * quantity;
   }
 }
 function newId(): string {
@@ -64,8 +43,8 @@ function newId(): string {
     s4()
   );
 }
-export const pillOptions = ['60 pcs', '120 pcs'] as string[];
-export const powderOptions = [
+const pillOptions = ['60 pcs', '120 pcs'] as string[];
+const powderOptions = [
   'Chocolate',
   'Banana',
   'Caramel',
@@ -73,8 +52,6 @@ export const powderOptions = [
   'Jungle Juice',
   'Tropical',
 ] as string[];
-
-///the static data should not use random id as the products will be different
 
 export function addSamplePack(): Product[] {
   let lorem: string =
@@ -87,8 +64,7 @@ export function addSamplePack(): Product[] {
       229,
       pillOptions,
       lorem,
-      'https://www.tillskottsbolaget.se/bilder/artiklar/zoom/BIOTECH843_1.jpg?m=1625179915',
-      true
+      'https://www.tillskottsbolaget.se/bilder/artiklar/zoom/BIOTECH843_1.jpg?m=1625179915'
     )
   );
   samples.push(
@@ -98,8 +74,7 @@ export function addSamplePack(): Product[] {
       399,
       pillOptions,
       lorem,
-      'https://www.tillskottsbolaget.se/bilder/artiklar/zoom/SPORTLAB753_1.jpg?m=1654808842',
-      true
+      'https://www.tillskottsbolaget.se/bilder/artiklar/zoom/SPORTLAB753_1.jpg?m=1654808842'
     )
   );
   samples.push(
@@ -109,8 +84,7 @@ export function addSamplePack(): Product[] {
       249,
       pillOptions,
       lorem,
-      'https://www.tillskottsbolaget.se/bilder/artiklar/zoom/SPORTLAB7853_1.jpg?m=1654808909',
-      true
+      'https://www.tillskottsbolaget.se/bilder/artiklar/zoom/SPORTLAB7853_1.jpg?m=1654808909'
     )
   );
   samples.push(
@@ -120,8 +94,7 @@ export function addSamplePack(): Product[] {
       349,
       powderOptions,
       lorem,
-      'https://www.tillskottsbolaget.se/bilder/artiklar/zoom/SPORTLAB001_1.jpg?m=1654808783',
-      false
+      'https://www.tillskottsbolaget.se/bilder/artiklar/zoom/SPORTLAB001_1.jpg?m=1654808783'
     )
   );
 
@@ -132,8 +105,7 @@ export function addSamplePack(): Product[] {
       149,
       pillOptions,
       lorem,
-      'https://www.tillskottsbolaget.se/bilder/artiklar/SOLID8593.jpg?m=1669844573',
-      true
+      'https://www.tillskottsbolaget.se/bilder/artiklar/SOLID8593.jpg?m=1669844573'
     )
   );
   samples.push(
@@ -143,8 +115,7 @@ export function addSamplePack(): Product[] {
       599,
       powderOptions,
       lorem,
-      'https://www.tillskottsbolaget.se/bilder/artiklar/zoom/CHAOS7583_1.jpg?m=1656360007',
-      false
+      'https://www.tillskottsbolaget.se/bilder/artiklar/zoom/CHAOS7583_1.jpg?m=1656360007'
     )
   );
   samples.push(
@@ -154,8 +125,7 @@ export function addSamplePack(): Product[] {
       549,
       powderOptions,
       lorem,
-      'https://www.tillskottsbolaget.se/bilder/artiklar/zoom/SOLID75832_1.jpg?m=1661374360',
-      false
+      'https://www.tillskottsbolaget.se/bilder/artiklar/zoom/SOLID75832_1.jpg?m=1661374360'
     )
   );
   samples.push(
@@ -165,8 +135,7 @@ export function addSamplePack(): Product[] {
       189,
       pillOptions,
       lorem,
-      'https://www.tillskottsbolaget.se/bilder/artiklar/zoom/OPTIMUM003_1.jpg?m=1614199819',
-      true
+      'https://www.tillskottsbolaget.se/bilder/artiklar/zoom/OPTIMUM003_1.jpg?m=1614199819'
     )
   );
   samples.push(
@@ -176,8 +145,7 @@ export function addSamplePack(): Product[] {
       299,
       pillOptions,
       lorem,
-      'https://www.tillskottsbolaget.se/bilder/artiklar/zoom/SSVMC_1.jpg?m=1653342949',
-      true
+      'https://www.tillskottsbolaget.se/bilder/artiklar/zoom/SSVMC_1.jpg?m=1653342949'
     )
   );
   samples.push(
@@ -187,8 +155,7 @@ export function addSamplePack(): Product[] {
       229,
       pillOptions,
       lorem,
-      'https://www.tillskottsbolaget.se/bilder/artiklar/zoom/STAR022_1.jpg?m=1614199775',
-      true
+      'https://www.tillskottsbolaget.se/bilder/artiklar/zoom/STAR022_1.jpg?m=1614199775'
     )
   );
   samples.push(
@@ -198,8 +165,7 @@ export function addSamplePack(): Product[] {
       139,
       pillOptions,
       lorem,
-      'https://www.tillskottsbolaget.se/bilder/artiklar/zoom/SCITEC0012_1.jpg?m=1657827568',
-      true
+      'https://www.tillskottsbolaget.se/bilder/artiklar/zoom/SCITEC0012_1.jpg?m=1657827568'
     )
   );
 
@@ -210,78 +176,8 @@ export function addSamplePack(): Product[] {
       229,
       pillOptions,
       lorem,
-      'https://www.tillskottsbolaget.se/bilder/artiklar/zoom/BIOTECH843_1.jpg?m=1625179915',
-      true
+      'https://www.tillskottsbolaget.se/bilder/artiklar/zoom/BIOTECH843_1.jpg?m=1625179915'
     )
   );
   return samples;
 }
-
-// function samplePack() {
-//   let imgList:string[] = [
-//     "ApigeninCapsulesSPLASHv2__48047.jpg",
-//     "L-GlutathioneTabletsSPLASH__07198.jpg",
-//     "MatrineCapsulesSPLASH__85123.jpg",
-//     "NADHPowderSPLASH__95475.jpg",
-//     "ReducedL-GlutathionePowderSPLASH__99264.jpg",
-//     "NMNPowderSPLASH__74856.jpg",
-//     "NicotinamideRibosideCapsulesSPLASH__83474.jpg",
-//     "Pyridoxal5PhosphateCapsulesSPLASH__79450.jpg",
-//     "S-AcetylL-GlutathioneCapsulesSPLASH__90722.jpg",
-//     "TongkatAliCapsulesSPLASH__89306.jpg",
-
-//   ];
-
-//   imgList.forEach(index)=>{
-//     isPillCheck(index)
-//   }
-//   function registerItem(){
-
-//     inventory.push(
-//       new Product(
-//         imgList.map(str)=>{
-//           getName(str),
-//           "250" || "299" || "590",
-//           pillOptions,
-//           lorem,
-//           str,
-//           isPillCheck(str),
-//         }))
-//       }
-
-//   function getName(item:string):string {
-//     let name:string = "";
-//     let splits = [] as string[];
-//     imgList.forEach(str => {
-//       if(item === str){
-//         str.slice(str.indexOf("SPLASH",str.length));
-//         for(let i = 0; i < str.length; i++){
-//           splits = str.split(/A-Ö/);
-//           splits.forEach(line=>{
-//             name = (name += line + " ");
-//           });
-//         };
-//       }
-//     });
-//     return name;
-//   };
-//   function isPillCheck(item):boolean{
-//     let key = ["Capsules", "Powder"] as string[];
-//     let isPills:boolean = false;
-//     imgList.forEach(str=>{
-//       if(str === item){
-//         if(str.includes(key[0])){
-//           isPills = true;
-//         };
-
-//       }
-//     });
-//     return isPills;
-//   };
-
-// id
-// img
-// price
-// label
-// flavor[]
-// details

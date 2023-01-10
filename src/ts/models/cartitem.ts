@@ -5,15 +5,7 @@ export class CartItem extends Product {
   quantity: number = NaN;
   totalPrice: number = NaN;
   constructor(p: Product, quantity: number) {
-    super(
-      p.id,
-      p.label,
-      p.price,
-      p.options,
-      p.description,
-      p.imgLink,
-      p.isPills
-    );
+    super(p.id, p.label, p.price, p.options, p.description, p.imgLink);
     this.quantity = quantity;
     this.totalPrice = p.price * quantity;
   }
@@ -36,12 +28,12 @@ export function calc(sumTotal: boolean = false): number {
   if (sumTotal) {
     let sum: number = 0;
     cart.forEach((p) => {
-      sum += p.item.price * p.quantity;
+      sum += p.price * p.quantity;
     });
     return sum;
   } else {
     cart.forEach((p) => {
-      return p.item.price * p.quantity;
+      return p.price * p.quantity;
     });
   }
   return NaN;

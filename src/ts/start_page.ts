@@ -7,6 +7,7 @@ const cartValue: CartItem[] = [];
 
 // StartPage start________________________Y
 export function loadHome() {
+  console.log(sections[0]);
   const product_container = sections[0];
   //counter for each products to render
   let counter = 0;
@@ -193,13 +194,12 @@ export function loadHome() {
 
     function addToCartBox(product_in_cart: CartItem) {
       //let shopping_cart = document.getElementById("shopping_cart");
-      let product_ids_in_cart = cartValue.map((ca) => ca.item.id);
+      let product_ids_in_cart = cartValue.map((ca) => ca.id);
       let current_cart = product_in_cart;
       if (cartValue.length === 0) {
         cartValue.push(product_in_cart);
         console.log(
-          'Adding for the first and Selected product id: ' +
-            product_in_cart.item.id
+          'Adding for the first and Selected product id: ' + product_in_cart.id
         );
         console.log(product_in_cart.quantity);
 
@@ -207,14 +207,14 @@ export function loadHome() {
         // shopping_cart.innerHTML = "product id: "+product_in_cart.item.imgLink+"And quantity: "+product_in_cart.qty;
       } else if (
         cartValue !== null &&
-        !product_ids_in_cart.includes(product_in_cart.item.id)
+        !product_ids_in_cart.includes(product_in_cart.id)
       ) {
         cartValue.push(product_in_cart);
         cartValue.forEach((cart) => {
           current_cart = cart;
           // let shopping_cart = document.getElementById("shopping_cart") as HTMLElement;
           // shopping_cart.innerHTML = "product id: "+cart.item.id+"And quantity: "+cart.qty;
-          console.log('Selected product id: ' + cart.item.id);
+          console.log('Selected product id: ' + cart.id);
           console.log(cart.quantity);
         });
       } else {
@@ -228,7 +228,7 @@ export function loadHome() {
 
       let prices: number = 0;
       cartValue.forEach((p) => {
-        prices += Number(p.item.price) * p.quantity;
+        prices += Number(p.price) * p.quantity;
       });
 
       console.log(
