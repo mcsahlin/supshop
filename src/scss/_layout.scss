@@ -1,50 +1,25 @@
 @use "mixins" as m;
 @use "variables" as v;
 
-.page {
-    display: none;
-  &--start{
-    display: block;
-  }
-  &--product{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    width: 95vw;
-    @include m.desktop {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-  }
-}
+.main {
+  .page {
+    &--home {
 
-.container {
- display: flex;
- flex-direction: column;
- width: 90vw; 
- padding: 20px;
- &--description, &--super {
-  background-color: v.$bg_color;
- }
- &--description {
-  width: 100%;
- }
- &--super {
-  display: flex;
-  flex-direction: column;
-  @include m.tablet {
-   flex-direction: row;
-   gap: 2vw;
-  }
-  @include m.desktop {
-   gap: 20px;
-  }
- }
-}
-.prod {
- display: flex;
+    }
+    &--product {
+        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        width: 95vw;
+        @include m.desktop {
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+        
+ display:  flex;
  flex-direction: column;
  gap: 15px;
  justify-content: center;
@@ -60,7 +35,7 @@
  &__img {
   border-radius: 50%;
  }
- &__details {
+ &__info {
   @include m.tablet {
    display: flex;
    flex-direction: column;
@@ -71,7 +46,7 @@
    gap: 20px;
   }
  }
- &__info {
+ &__details {
   display: flex;
   flex-direction: column; 
   font-size: large;
@@ -114,7 +89,7 @@
  &__flav-sel {
   height: 30px;
  }
- &__qty {
+ &__qty-container {
   display: flex;
   justify-content: space-between;
   @include m.tablet {
@@ -123,7 +98,7 @@
    justify-content: space-between; 
   }
  }
- &__qty-container {
+ &__qty-label {
   width: 38%;
   display: flex;
   justify-content: space-between;
@@ -207,7 +182,35 @@
  &__description {
   border: 3px solid #2a2b2c;
  }
+      }
+    }
+  }
+
+
+.container {
+ display: flex;
+ flex-direction: column;
+ width: 90vw; 
+ padding: 20px;
+ &--description, &--super {
+  background-color: v.$bg_color;
+ }
+ &--description {
+  width: 100%;
+ }
+ &--super {
+  display: flex;
+  flex-direction: column;
+  @include m.tablet {
+   flex-direction: row;
+   gap: 2vw;
+  }
+  @include m.desktop {
+   gap: 20px;
+  }
+ }
 }
+
 
 .promo {
  &__link {

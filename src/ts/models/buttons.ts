@@ -1,19 +1,19 @@
 //#region Add To Cart
 
-import { Cart } from "./cart";
-import { inventory } from "./product";
+import { Cart } from './cartitem';
+import { inventory } from './product';
 
 const cart: Cart[] = [];
 // Initialize buy btn
 const toCartBtn: HTMLButtonElement = document.getElementById(
-  "prod-to-cart"
+  'prod-to-cart'
 ) as HTMLButtonElement;
 
-toCartBtn.addEventListener("click", handleToCart);
+toCartBtn.addEventListener('click', handleToCart);
 
 export function handleToCart(): void {
-  let id: string = localStorage.getItem("id") as string;
-  const qtyInput = document.getElementById("qty") as HTMLInputElement;
+  let id: string = localStorage.getItem('id') as string;
+  const qtyInput = document.getElementById('qty') as HTMLInputElement;
   let qty: number = parseInt(qtyInput.value);
   toCart(id, qty);
 }
