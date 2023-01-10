@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="scss/main.scss" />
+    <script defer src="ts/main.ts" type="module"></script>
+    <title>Checkout</title>
+  </head>
+  <body>
+    <header class="banner banner--checkout"></header>
+    <main id="checkout-page">
+      <h1>Checkout</h1>
+      <section class="buyer-details">
+        <form action="post" class="buyer">
+          <div class="buyer__name">
+            <label for="firstname">First Name</label>
+            <input
+              id="firstname"
+              class="buyer__firstname split"
+              type="text"
+              name="firstname"
+              required
+            />
+            <label for="lastname">Last Name</label>
+            <input
+              id="lastname"
+              class="buyer__lastname split"
+              type="text"
+              name="lastname"
+              required
+            />
+          </div>
+          <div class="buyer__location">
+            <label for="country">Country</label>
+            <select
+              id="country"
+              class="buyer__country split"
+              name="country"
+              required
+            ></select>
+            <label for="city">City</label>
+            <select id="city" class="buyer__city split" name="city"></select>
+          </div>
+          <label for="zipcode">Zip Code</label>
+          <input
+            id="zipcode"
+            class="buyer__zipcode"
+            type="text"
+            name="zipcode"
+            required
+          />
+          <label for="streetaddress">Street Address</label>
+          <input
+            id="streetaddress"
+            class="buyer__streetaddress"
+            type="text"
+            name="streetaddress"
+            required
+          />
+          <div class="buyer__contact">
+            <label for="phone">Phone Number</label>
+            <input
+              id="phone"
+              class="buyer__phone"
+              type="tel"
+              name="phone"
+              required
+            />
+            <label for="email">Email</label>
+            <input
+              id="email"
+              class="buyer__email"
+              type="email"
+              name="phone"
+              required
+            />
+          </div>
+        </form>
+      </section>
+      <section class="cartcontent cartcontent--checkout"></section>
+      <section class="card">
+        <h3 class="card__heading">Payment Method</h3>
+        <div class="card__logos"></div>
+        <form id="payment-form" method="post" action="#">
+          <div class="card__fields">
+            <label for="card-num">Card Number</label>
+            <input
+              id="card-num"
+              class="card__num"
+              type="text"
+              placeholder="**** **** **** ****"
+              name="c-num"
+              required
+            />
+            <label for="card-exp"></label>
+            <input
+              id="card-exp"
+              class="card__exp split"
+              type="text"
+              placeholder="MM/YY"
+              name="c-exp"
+              required
+            />
+            <label for="card-csc"></label>
+            <input
+              id="card-csc"
+              class="card__csc split"
+              type="text"
+              placeholder="MM/YY"
+              name="c-csc"
+              required
+            />
+            <input
+              type="checkbox"
+              required
+              placeholder="I have read and agreed to the terms and conditions of Supshop Intergalactical."
+            />
+          </div>
+          <div class="card__submit">
+            <button
+              id="confirm-purchase"
+              type="submit"
+              name="submitted"
+              value="true"
+            >
+              PLACE ORDER
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+    <footer id="footer"></footer>
+  </body>
+</html>
