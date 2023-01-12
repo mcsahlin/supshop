@@ -2,7 +2,7 @@ import { addSamplePack, Product } from "./models/product";
 import { createHtml, createHtmlElementWithClassAndId } from "./helpers";
 import { Cart } from "./models/cart";
 const inventory: Product[] = addSamplePack();
-const cartValue:Cart[] = [];
+let cartValue:Cart[] = [];
 
 // StartPage start________________________Y
 
@@ -13,10 +13,10 @@ let counter = 0;
 //iterate over each product
 inventory.forEach((prodcut) => populateStaticData(prodcut));
 
+displayToCartBox("00.00", "0");
+
 function populateStaticData(product: Product) {
-
   let item_box_div = createHtmlElementWithClassAndId("div", "product_box", "product_box_" + counter);
-
   //load image from product object
   let img = new Image(120, 120);
   img.className = "img_item";
@@ -62,6 +62,7 @@ const footer = document.getElementById("footer");
 if (footer !== null) {
   product_container.appendChild(footer);
 }
+
 document.body.appendChild(product_container);
 
 function addToCart() {
@@ -74,11 +75,14 @@ function addToCart() {
       to_be_removed.parentNode?.removeChild(to_be_removed);
       let btnContainer = createCartButtons(i);
       info.appendChild(btnContainer);
+      let product_in_cart = new Cart(inventory[i], 1);
+      addToCartBox(product_in_cart);
       minusFromCurrentValue(i);
       addToCurrentValue(i);
     });
   }
 }
+
 addToCart();
 //add to Cart buttons
 function createCartButtons(id_number: number): HTMLElement {
@@ -108,7 +112,30 @@ function minusFromCurrentValue(currentElement: number) {
       let current_value: number = Number(txt_input.value) - 1;
       txt_input.value = current_value.toString();
       let product_in_cart = new Cart(inventory[currentElement], current_value);
-      addToCartBox(product_in_cart);
+      for(let i = 0; i<cartValue.length; i++) {
+        if(cartValue[i].item.id === product_in_cart.item.id) {
+          console.log("found: ");
+          console.log(cartValue[i].item.id);
+          if(cartValue[i].qty > 0) {
+
+            cartValue[i].qty -= 1;
+            console.log("Quantity is grater than 0 ...."+cartValue[i].qty);
+          }else {
+           cartValue = cartValue.filter(cart => cart !== cartValue[i]);
+          }
+          let prices:number = 0;  
+          let quantityCounter = 0;
+        
+          cartValue.forEach(p => {
+            prices += Number(p.item.price)*p.qty;
+            quantityCounter += p.qty;
+          });
+          
+          updateCurrentPriceAndQuantity(prices.toString(), quantityCounter.toString());
+      }
+    }
+
+      //addToCartBox(product_in_cart);
       if (current_value == 0) {
        let to_remove = document.getElementById("btn_container_" + currentElement) as HTMLElement;
         to_remove.parentNode?.removeChild(to_remove);
@@ -119,6 +146,7 @@ function minusFromCurrentValue(currentElement: number) {
        
         addToCart();
       }
+      
     });
 }
 
@@ -135,43 +163,51 @@ function addToCurrentValue(currentElement: number): void {
     });
 }
 
+
 function addToCartBox(product_in_cart:Cart) {
-
-  //let shopping_cart = document.getElementById("shopping_cart");
-
     let product_ids_in_cart = cartValue.map(ca => ca.item.id);
-    let current_cart = product_in_cart; 
     if (cartValue.length === 0) {
-      cartValue.push(product_in_cart)
-      console.log("Adding for the first and Selected product id: "+product_in_cart.item.id);
-      console.log(product_in_cart.qty);
-      
-      // let shopping_cart = document.getElementById("shopping_cart") as HTMLElement;
-      // shopping_cart.innerHTML = "product id: "+product_in_cart.item.imgLink+"And quantity: "+product_in_cart.qty;
-    }
-    else if (cartValue !== null && !(product_ids_in_cart.includes(product_in_cart.item.id))){
-      cartValue.push(product_in_cart)
-      cartValue.forEach(cart=>{
-        current_cart = cart;
-        // let shopping_cart = document.getElementById("shopping_cart") as HTMLElement;
-        // shopping_cart.innerHTML = "product id: "+cart.item.id+"And quantity: "+cart.qty;
-      console.log("Selected product id: "+cart.item.id);
-      console.log(cart.qty);
-    });
-    
+      cartValue.push(product_in_cart);
+    } else if (cartValue !== null && !(product_ids_in_cart.includes(product_in_cart.item.id))) {
+      cartValue.push(product_in_cart)    
   } else {
-    console.log("updating quantity ");
-    //current_cart.qty
-    console.log(current_cart.qty);
-
-   // let shopping_cart = document.getElementById("shopping_cart") as HTMLElement;
-    //shopping_cart.innerHTML = "product id: "+current_cart.item.id+"And quantity: "+current_cart.qty;
+    cartValue.forEach( p=> {
+      if(p.item.id === product_in_cart.item.id) {
+        p.qty += 1;
+      }
+    });
   }
 
   let prices:number = 0;  
-  cartValue.forEach(p=> {
-    prices += Number(p.item.price)*p.qty;
-  });
+  let quantityCounter = 0;
 
-  console.log("Totat products in cart: "+cartValue.length+" total price: "+prices);
+  cartValue.forEach(p => {
+    prices += Number(p.item.price)*p.qty;
+    quantityCounter += p.qty;
+  });
+  
+  updateCurrentPriceAndQuantity(prices.toString(), quantityCounter.toString());
+}
+
+function displayToCartBox(caculatedPrice:string, counterText:string){
+  const cartIcon = document.getElementById("cart_ic") as HTMLElement;
+  const counter = createHtml("span", "counter_txt") as HTMLElement;
+  counter.textContent = counterText;
+  const totalPrice = createHtml("span", "total_pr");
+  totalPrice.textContent = caculatedPrice+" kr";
+  const linkToStore = createHtmlElementWithClassAndId("a", "cart_box_link", "cart_box_link_id");
+  linkToStore.appendChild(cartIcon);
+  linkToStore.setAttribute("href", "#sotre");
+  linkToStore.appendChild(totalPrice);
+ 
+  const cartContainer = document.getElementById("shopping_cart") as HTMLElement;
+  cartContainer.appendChild(counter);
+  cartContainer.appendChild(linkToStore);
+}
+
+function updateCurrentPriceAndQuantity(price:string, quantity:string) {
+  let priceSpan = document.querySelector(".total_pr") as HTMLElement;
+  let counter = document.querySelector(".counter_txt") as HTMLElement;
+  priceSpan.textContent = price;
+  counter.textContent = quantity;
 }
