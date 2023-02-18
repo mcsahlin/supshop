@@ -39,7 +39,7 @@ function populateStaticData(product: Product) {
   prod_link.innerHTML = prod_name;
   if(prod_link !== null){
     prod_link.addEventListener("click", () => localStorage.setItem("product_id", product.id), false);
-    prod_link.setAttribute("href", "http://localhost:1234/product.html");
+    prod_link.setAttribute("href", "http://localhost:1234/product.html"); 
   }
 
   product_info.appendChild(prod_link);
@@ -67,6 +67,11 @@ document.body.appendChild(product_container);
 
 function addToCart() {
   let btn_list = document.getElementsByClassName("btn_add_to_cart") as HTMLCollectionOf<HTMLElement>;
+let clickedButton = document.querySelector(".btn_add_to_cart") as HTMLElement;
+clickedButton.addEventListener("click", (e) => {
+});
+
+
   for (let i = 0; i < btn_list.length; i++) {
     btn_list[i].addEventListener("click", () => {
       let info = document.getElementById("product_info_" + i) as HTMLElement;
@@ -114,12 +119,8 @@ function minusFromCurrentValue(currentElement: number) {
       let product_in_cart = new Cart(inventory[currentElement], current_value);
       for(let i = 0; i<cartValue.length; i++) {
         if(cartValue[i].item.id === product_in_cart.item.id) {
-          console.log("found: ");
-          console.log(cartValue[i].item.id);
           if(cartValue[i].qty > 0) {
-
             cartValue[i].qty -= 1;
-            console.log("Quantity is grater than 0 ...."+cartValue[i].qty);
           }else {
            cartValue = cartValue.filter(cart => cart !== cartValue[i]);
           }
@@ -134,8 +135,6 @@ function minusFromCurrentValue(currentElement: number) {
           updateCurrentPriceAndQuantity(prices.toString(), quantityCounter.toString());
       }
     }
-
-      //addToCartBox(product_in_cart);
       if (current_value == 0) {
        let to_remove = document.getElementById("btn_container_" + currentElement) as HTMLElement;
         to_remove.parentNode?.removeChild(to_remove);
@@ -146,7 +145,6 @@ function minusFromCurrentValue(currentElement: number) {
        
         addToCart();
       }
-      
     });
 }
 
@@ -197,8 +195,17 @@ function displayToCartBox(caculatedPrice:string, counterText:string){
   totalPrice.textContent = caculatedPrice+" kr";
   const linkToStore = createHtmlElementWithClassAndId("a", "cart_box_link", "cart_box_link_id");
   linkToStore.appendChild(cartIcon);
-  linkToStore.setAttribute("href", "#sotre");
+  
   linkToStore.appendChild(totalPrice);
+  linkToStore.addEventListener("click", ()=> { 
+    if(cartValue.length <= 0){
+      alert("Cart is empty! Add some products");
+      return;
+    }
+
+    localStorage.setItem("cartValues", JSON.stringify(cartValue))
+    linkToStore.setAttribute("href", "../cart.html");     
+  });
  
   const cartContainer = document.getElementById("shopping_cart") as HTMLElement;
   cartContainer.appendChild(counter);
@@ -211,3 +218,9 @@ function updateCurrentPriceAndQuantity(price:string, quantity:string) {
   priceSpan.textContent = price;
   counter.textContent = quantity;
 }
+
+
+
+
+
+

@@ -1,0 +1,181 @@
+@use "./variables" as v;
+
+body{
+    background-color: rgb(14, 13, 13);
+    width: 100%;
+   
+}
+.checkout_countainer{
+    width: 94%;
+    display: flex;
+    align-items: center; 
+    text-align: center; 
+    flex-direction: column;
+    justify-content: center;
+    margin: auto; 
+}
+
+.formCountainer{
+    padding-top: 50px;
+    display: flex; 
+    flex-direction: column;
+    margin-bottom: 100px;
+    padding-bottom: 50px;
+    gap: 2rem;
+    background: #2c2b2b;
+    justify-content: center;
+    height: 100%;
+    border-radius: 10px;
+  
+}
+@media screen and (min-width:v.$tablet_breakpoint) {
+    .formCountainer{
+        padding-top: 150px;
+        display: flex; 
+        margin-top: 1rem;
+        gap: 2rem;
+        width: 40%;
+        height: 100vh;
+        background: #2c2b2b;
+        justify-content: center;
+        margin-top: 70px;
+        margin-bottom: 150px;
+        padding-bottom: 50px;
+        border-radius: 15px;
+    }
+}
+@media screen and (min-width: v.$desktop_breakpoint) {
+    .formCountainer{
+        align-items: center;
+        display: flex; 
+        margin-top: 1rem;
+        gap: 2rem;
+        width: 40%;
+        height: 90%;
+        background: #2c2b2b;
+        justify-content: center;
+        margin-top: 20px;
+        border-radius: 15px;
+    }
+}
+
+form{    
+    text-align: left;
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+
+.infoBox{ 
+    text-align: left;
+    position: relative;
+    width: 96%;
+    margin: 10px 5px;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+   
+ }
+
+ 
+  
+  .countryList {
+    display:inline-block;
+    width: 30%;
+    margin-left: 5px;
+  }
+  .countryPostcode {
+    display: inline-block;
+    width: 65%;
+  }
+
+.checkout{
+    border-radius: 20px;
+    color: rgb(255, 254, 252);
+}
+@media screen and (min-width:v.$tablet_breakpoint) {
+    .checkout{
+        margin-top: 100px;
+        border-radius: 20px;
+        padding: 1rem;
+        color: rgb(255, 254, 252);
+    }
+}
+@media screen and (min-width: v.$desktop_breakpoint) {
+    .checkout{
+        margin-top: 100px;
+        border-radius: 20px;
+        padding: 1rem;
+        color: rgb(255, 254, 252);
+    }
+}
+
+h1{
+    font-size: 50px;
+    color: rgb(207, 207, 207);
+
+}
+
+h2{
+    font-size: 20px;
+}
+form h1{
+    font-size: 25px;
+
+}
+
+ label{
+    width: 90%;
+ }
+
+ input:not(#x){    
+    border: 1px solid rgb(133, 130, 130); 
+    border-radius: 5px;
+    width: 100%;   
+    padding-left: 2rem;
+    padding: 0.5rem;
+    color: #2c2b2b;
+    
+
+ }
+
+ select { 
+    padding-left: 2rem;
+    width: 100%;
+    border-radius: 5px;
+   
+    color: #2c2b2b;
+    
+  }
+
+option {
+    color: #2c2b2b;
+    
+}
+
+#checkout_btn{
+    width: 100px;
+    border-radius: 8px;
+    background-color: rgb(132, 168, 33);
+    color: rgb(0, 0, 0);
+    border:0;
+    font-size: 1rem;
+    font-weight: 600;
+  margin-left: 235px;
+    cursor: pointer;
+
+}
+#checkout_btn:hover{
+    background-color: rgb(218, 221, 17);
+    color: brown;
+}
+
+#checkout_btn:hover{
+    box-shadow:0px 0px 10px 5px rgb(105, 100, 100);
+    transition: 0.5s;
+
+}
+
