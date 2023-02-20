@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,121 +8,129 @@
 
     <title>checkout</title>
 </head>
+
 <body>
 
     <div class="checkout_countainer">
-  
-    <div class="formCountainer">
-       
-        <form id="myform">
-            <div class="contactInfo">
-                <h1>Contact Information</h1>
-                <div class="infoBox">
-                    <label for="email">Email</label>
-                    <input type="email" name="email" id="email"  placeholder="Enter your email..." required>
-                </div>
-                <div class="infoBox">
-                    <label for="phone">Phone</label>
-                    <input type="number" name="phone" id="phone" placeholder="Enter your Phone..." required>
-                </div>
-            </div>
-            <div class="shipingAddres">
-                <h1>Shipping address</h1>
-                <div class="infoBox">
-                    <label for="firstName">First Name</label>
-                    <input type="text" name="firstName" id="firstName" placeholder="Enter your Full name..." required>
-                </div>
-                <div class="infoBox">
-                    <label for="lastName">Last Name</label>
-                    <input type="text" name="lastName" id="lastName" placeholder="Enter your Full name..." required>
-                </div>
-                <div class="infoBox">
-                    <label for="adress">Address</label>
-                    <input type="text" name="adress" id="adres" placeholder="Enter your address..." required>
-                </div>
-                <div class="infoBox">
-                    <label for="city">City</label>
-                    <input type="text" name="city" id="city" placeholder="Enter your city..." required>
-                </div>
 
-                <div class="countryList"">
+        <div class="formCountainer">
+
+            <form id="myform">
+                <div class="contactInfo">
+                    <h1>Contact Information</h1>
+                    <div class="infoBox">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" placeholder="Enter your email..." required>
+                    </div>
+                    <div class="infoBox">
+                        <label for="phone">Phone</label>
+                        <input type="number" name="phone" id="phone" placeholder="Enter your Phone..." required>
+                    </div>
+                </div>
+                <div class="shipingAddres">
+                    <h1>Shipping address</h1>
+                    <div class="infoBox">
+                        <label for="firstName">First Name</label>
+                        <input type="text" name="firstName" id="firstName" placeholder="Enter your Full name..."
+                            required>
+                    </div>
+                    <div class="infoBox">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" name="lastName" id="lastName" placeholder="Enter your Full name..." required>
+                    </div>
+                    <div class="infoBox">
+                        <label for="adress">Address</label>
+                        <input type="text" name="adress" id="adres" placeholder="Enter your address..." required>
+                    </div>
+                    <div class="infoBox">
+                        <label for="city">City</label>
+                        <input type="text" name="city" id="city" placeholder="Enter your city..." required>
+                    </div>
+
+                    <div class="countryList"">
                     <label for="">Country</label>
-                    <select name="country" id="country">
+                    <select name=" country" id="country">
                         <option value="Sweden">Sweden</option>
                         <option value="Norway">Norway</option>
                         <option value="Finland">Finland</option>
                         <option value="Danmark">Danmark</option>
                         <option value="island">Island</option>
-                    </select>
+                        </select>
+                    </div>
+                    <div class="countryPostcode">
+                        <label for="country">Post Code</label>
+                        <input type="string" name="postcode" placeholder="Enter your postal code..." required>
+                    </div>
+
                 </div>
-                <div class="countryPostcode">
-                    <label for="country">Post Code</label>
-                    <input type="string" name="postcode" placeholder="Enter your postal code..." required>
-                </div>
-                
-            </div> 
 
 
-            <div class="payment">
-                <h1>Payment</h1>
-            <div class="infoBox">
-                <label for="cardNumber">Card Number:</label>
-                <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" required>
-            </div>
-            <div class="infoBox">
-                <label for="cardName">Name on Card:</label>
-                <input type="text" id="cardName" name="cardName" placeholder="Yonatan Zewude" required>
-            </div>
-            <div class="infoBox">
-                <label for="expiryDate">Expiry Date:</label>
-                <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required>
-            </div>
-            <div class="infoBox">
-                <label for="cvv">CVV:</label>
-                <input type="number" id="cvv" name="cvv" placeholder="123" required>
-            </div>
-            </div>
-        </form>
-            </div>
+                <div class="payment">
+                    <h1>Payment</h1>
+                    <div class="infoBox">
+                        <label for="cardNumber">Card Number:</label>
+                        <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" required>
+                    </div>
+                    <div class="infoBox">
+                        <label for="cardName">Name on Card:</label>
+                        <input type="text" id="cardName" name="cardName" placeholder="Yonatan Zewude" required>
+                    </div>
+                    <div class="infoBox">
+                        <label for="expiryDate">Expiry Date:</label>
+                        <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required>
+                    </div>
+                    <div class="infoBox">
+                        <label for="cvv">CVV:</label>
+                        <input type="number" id="cvv" name="cvv" placeholder="123" required>
+                    </div>
+                </div>
+            </form>
         </div>
-       
-    </div>
-   </div> --!>
-   <div id="footer">
-    <div id="info">
-      <h3>INFORMATION</h3>
-      <p>Pricing</p>
-      <p>About us</p>
-      <p>Business</p>
-      <p>Jobs</p>
     </div>
 
-    <div id="custmer_services">
-      <h3>CUSTOMER SERVICES</h3>
-      <p>Contact us</p>
-      <p>Payments</p>
-      <p>Deliveries</p>
-      <p>Return Policy</p>
     </div>
-
-    <div id="social_media">
-      <h3>SOCIAL MEDIA</h3>
-        <div class="footer_icon">
-          
-          <a href="https://www.instagram.com/" target="_blank"><img src="../src/assets/startPage/icons/instagram_icon.png"
-              alt="instagram_icon" width="40px" height="40px"></a>
-          <a href="https://www.facebook.com/" target="_blank"><img src="../src/assets/startPage/icons/facebook_icon.png"
-              alt="facebook_icon" width="40px" height="40px"></a>
-          <a href="https://www.twitter.com/" target="_blank"><img src="../src/assets/startPage/icons/twitter_icon.png"
-              alt="twitter_icon" width="40px" height="40px"></a>
-          <a href="https://www.Youtube.com/" target="_blank"><img src="../src/assets/startPage/icons/youtubei_icon.png"
-              alt="youtubei_icon" width="40px" height="40px"></a>
-          <a href="https://www.pinterest.com/" target="_blank"><img src="../src/assets/startPage/icons/pinterest_icon.png"
-              alt="pinterest_icon" width="40px" height="40px"></a>
+    </div> --!>
+    <div id="footer">
+        <div id="info">
+            <h3>INFORMATION</h3>
+            <p>Pricing</p>
+            <p>About us</p>
+            <p>Business</p>
+            <p>Jobs</p>
         </div>
 
-    </div>
+        <div id="custmer_services">
+            <h3>CUSTOMER SERVICES</h3>
+            <p>Contact us</p>
+            <p>Payments</p>
+            <p>Deliveries</p>
+            <p>Return Policy</p>
+        </div>
 
-  </div>
+        <div id="social_media">
+            <h3>SOCIAL MEDIA</h3>
+            <div class="footer_icon">
+
+                <a href="https://www.instagram.com/" target="_blank"><img
+                        src="../src/assets/startPage/icons/instagram_icon.png" alt="instagram_icon" width="40px"
+                        height="40px"></a>
+                <a href="https://www.facebook.com/" target="_blank"><img
+                        src="../src/assets/startPage/icons/facebook_icon.png" alt="facebook_icon" width="40px"
+                        height="40px"></a>
+                <a href="https://www.twitter.com/" target="_blank"><img
+                        src="../src/assets/startPage/icons/twitter_icon.png" alt="twitter_icon" width="40px"
+                        height="40px"></a>
+                <a href="https://www.Youtube.com/" target="_blank"><img
+                        src="../src/assets/startPage/icons/youtubei_icon.png" alt="youtubei_icon" width="40px"
+                        height="40px"></a>
+                <a href="https://www.pinterest.com/" target="_blank"><img
+                        src="../src/assets/startPage/icons/pinterest_icon.png" alt="pinterest_icon" width="40px"
+                        height="40px"></a>
+            </div>
+
+        </div>
+
+    </div>
 </body>
+
 </html>

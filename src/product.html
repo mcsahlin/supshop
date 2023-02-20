@@ -1,75 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="stylesheet" href="scss/main.scss">
- <script defer src="ts/main.ts" type="module"></script>
- <title>Product page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="scss/main.scss">
+  <script defer src="ts/main.ts" type="module"></script>
+  <title>Product page</title>
 </head>
+
 <body>
   <div class="header"></a></div>
 
- <main class="product-page">
-  <section class="prod">
-    
-    <!-- Return to previous page -->
-    <button class="btn btn--back" type="button" id="btn-back"><div><img class="btn--back__img" src="./assets/icons/arrow-back-white.png" alt="Go to previous page" title="Previous page"/></div><a href="./index.html">Back</a></button></div></button>
-    
-    <!-- Images -->
-    <div class="container--super">
-    <div class="prod__img-box container"></div> 
+  <main class="product-page">
+    <section class="prod">
 
-    <!-- Price and label -->
-    <div class="prod__details">
-      <div class="prod__info container">
-        <span class="info__price"></span>
-        <span class="info__lbl"></span>
-      </div>
-      
-      <!-- Options -->
-      <div class="prod__opt-box container">
+      <!-- Return to previous page -->
+      <button class="btn btn--back" type="button" id="btn-back">
+        <div><img class="btn--back__img" src="./assets/icons/arrow-back-white.png" alt="Go to previous page"
+            title="Previous page" /></div><a href="./index.html">Back</a>
+      </button></div></button>
 
-        <!-- Flavor -->
-        <div class="prod__opt">
-          <label class="prod__flav-lbl" for="prod__flav-sel">Choose flavor</label>
-          <select class="prod__flav-sel" id="prod__flav-sel" placeholder="Click-n-pick.."></select>
+      <!-- Images -->
+      <div class="container--super">
+        <div class="prod__img-box container"></div>
+
+        <!-- Price and label -->
+        <div class="prod__details">
+          <div class="prod__info container">
+            <span class="info__price"></span>
+            <span class="info__lbl"></span>
+          </div>
+
+          <!-- Options -->
+          <div class="prod__opt-box container">
+
+            <!-- Flavor -->
+            <div class="prod__opt">
+              <label class="prod__flav-lbl" for="prod__flav-sel">Choose flavor</label>
+              <select class="prod__flav-sel" id="prod__flav-sel" placeholder="Click-n-pick.."></select>
+            </div>
+
+            <!-- Quantity -->
+            <div class="prod__qty">
+              <label class="prod__qty-container" for="qty">
+                <!-- <div class="prod__qty-container"> -->
+                <button class="prod__qty-btn  prod__qty-btn--decr" type="button">-</button>
+                <input id="qty" class="prod__qty-input" type="number" value="1" />
+                <button id="prod-to-cart" class="prod__qty-btn prod__qty-btn--incr" type="button">+</button>
+                <!-- </div> -->
+              </label>
+              <!-- Add to cart -->
+              <button class="btn prod__btn-buy btn--buy" type="button">Add to cart</button>
+            </div>
+
+          </div>
+
         </div>
-
-        <!-- Quantity -->
-        <div class="prod__qty">
-          <label class="prod__qty-container" for="qty">
-            <!-- <div class="prod__qty-container"> -->
-              <button class="prod__qty-btn  prod__qty-btn--decr" type="button">-</button>
-              <input id="qty" class="prod__qty-input" type="number" value="1"/>
-              <button id="prod-to-cart" class="prod__qty-btn prod__qty-btn--incr" type="button">+</button>
-            <!-- </div> -->
-          </label>
-          <!-- Add to cart -->
-          <button class="btn prod__btn-buy btn--buy" type="button">Add to cart</button>
-        </div>
-
       </div>
-      
-    </div>
-  </div>
 
-    <!-- Details -->
-    <article class="prod__description container container--description">
-      <p class="specs"></p>
-    </article>
-  </section>
+      <!-- Details -->
+      <article class="prod__description container container--description">
+        <p class="specs"></p>
+      </article>
+    </section>
 
-  <!-- Promos -->
-  <section class="promo-section">
-    <h3 class="promo__heading">Others also bought:</h3>
-    <div class="promo container">
-      <a href="#" class="promo__link"><span class="promo__prod-1"></span></a>
-      <a href="#" class="promo__link"><span class="promo__prod-2"></span></a>
-      <a href="#" class="promo__link"><span class="promo__prod-3"></span></a>
-      <a href="#" class="promo__link"><span class="promo__prod-4"></span></a>
-    </div>
-  </section>
-</main>
+    <!-- Promos -->
+    <section class="promo-section">
+      <h3 class="promo__heading">Others also bought:</h3>
+      <div class="promo container">
+        <a href="#" class="promo__link"><span class="promo__prod-1"></span></a>
+        <a href="#" class="promo__link"><span class="promo__prod-2"></span></a>
+        <a href="#" class="promo__link"><span class="promo__prod-3"></span></a>
+        <a href="#" class="promo__link"><span class="promo__prod-4"></span></a>
+      </div>
+    </section>
+  </main>
 </body>
+
 </html>

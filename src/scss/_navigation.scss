@@ -143,9 +143,10 @@ li a:hover:not(.active) {
   justify-content: space-between;
   border-radius: 5px;
   position: fixed;
+
   @include m.desktop {
     position: fixed;
-   }
+  }
 
 }
 
@@ -179,50 +180,53 @@ li a:hover:not(.active) {
   font-size: small;
   margin-top: 20px;
 }
+
 @media screen and (max-width: v.$tablet_breakpoint) {
-  
-#shopping_cart{
-  background: goldenrod;
-  width: 160px;
-  height: 40px;
-  margin-left: 53%;
-  margin-bottom: 10px;
-  display: flex;
-  flex-direction: row-reverse; 
-  border-radius: 5px;
-  position: absolute;
 
-}
+  #shopping_cart {
+    background: goldenrod;
+    width: 160px;
+    height: 40px;
+    margin-left: 53%;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row-reverse;
+    border-radius: 5px;
+    position: absolute;
 
-.cart_icon {
-  max-width: 90%;
-  max-height: 60%;
-  margin-top: 8px;
-  margin-left: 2px;
-  @include m.desktop {
-    margin-top: 20px;
-  
-   }
-}
+  }
 
-.cart_box_link {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  gap: 5PX;
-}
+  .cart_icon {
+    max-width: 90%;
+    max-height: 60%;
+    margin-top: 8px;
+    margin-left: 2px;
 
-.counter_txt {
-  text-align: center;
-  margin-left: 5px;
+    @include m.desktop {
+      margin-top: 20px;
 
-}
+    }
+  }
 
-.total_pr {
-margin-top: 2px;
-@include m.desktop {
-  margin-top: 20px;
+  .cart_box_link {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 5PX;
+  }
 
- }
-}
+  .counter_txt {
+    text-align: center;
+    margin-left: 5px;
+
+  }
+
+  .total_pr {
+    margin-top: 2px;
+
+    @include m.desktop {
+      margin-top: 20px;
+
+    }
+  }
 }

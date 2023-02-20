@@ -1,8 +1,10 @@
 @use "./variables" as v;
 
-body{height: 100%;}
+body {
+    height: 100%;
+}
 
-.BackToStart{
+.BackToStart {
     width: 70px;
     margin-left: 290px;
     margin-bottom: 10PX;
@@ -13,8 +15,9 @@ body{height: 100%;}
     text-align: center;
     border: 0;
 }
+
 @media screen and (min-width:v.$tablet_breakpoint) {
-    .BackToStart{
+    .BackToStart {
         width: 80px;
         margin-left: 300px;
         font-weight: 600;
@@ -26,7 +29,7 @@ body{height: 100%;}
 }
 
 @media screen and (min-width: v.$desktop_breakpoint) {
-    .BackToStart{
+    .BackToStart {
         width: 80px;
         margin-left: 300px;
         font-weight: 600;
@@ -34,12 +37,12 @@ body{height: 100%;}
         background: rgb(179, 160, 137);
         border-radius: 8px;
         text-align: center;
-        
+
     }
 }
 
-.BackToStart:hover{
-    box-shadow:0px 0px 6px 3px rgb(255, 254, 254);
+.BackToStart:hover {
+    box-shadow: 0px 0px 6px 3px rgb(255, 254, 254);
     transition: 0.5s;
     cursor: pointer;
 }
@@ -56,12 +59,11 @@ body{height: 100%;}
     box-shadow: 1px 0.5px;
     border-radius: 10px;
     padding-bottom: 10px;
-    }
+}
 
 @media screen and (min-width:v.$tablet_breakpoint) {
     .cart {
-    
-        margin:auto;
+        margin: auto;
         width: 60%;
         height: auto;
         padding: 20px;
@@ -69,30 +71,31 @@ body{height: 100%;}
         box-shadow: 1px 0.5px;
         margin-top: 10px;
         margin-bottom: 10px;
-        }
+    }
 }
 
 @media screen and (min-width: v.$desktop_breakpoint) {
     .cart {
-    margin: auto;
-    width: 38%;
-    height: auto;
-    padding: 20px;
-    background: rgb(58, 58, 58);
-    box-shadow: 1px 0.5px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+        margin: auto;
+        width: 38%;
+        height: auto;
+        padding: 20px;
+        background: rgb(58, 58, 58);
+        box-shadow: 1px 0.5px;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 }
 
-.cartNameInfo{
+.cartNameInfo {
     width: 200px;
     display: flex;
     flex-direction: column;
-    align-items:flex-start;
+    align-items: flex-start;
     gap: 10px;
-   
+
 }
+
 @media screen and (min-width:v.$tablet_breakpoint) {
     .cartNameInfo {
         display: flex;
@@ -101,15 +104,16 @@ body{height: 100%;}
         width: 340px;
     }
 }
+
 @media screen and (min-width: v.$desktop_breakpoint) {
-    .cartNameInfo{
+    .cartNameInfo {
         display: flex;
         flex-direction: column;
         gap: 20px;
         width: 340px;
         position: absolute;
     }
-    }
+}
 
 .CartTitle {
     text-align: left;
@@ -125,109 +129,115 @@ body{height: 100%;}
 }
 
 @media screen and (min-width: v.$desktop_breakpoint) {
-.CartTitle {
-    text-align: center;
-    color: white;
-}
+    .CartTitle {
+        text-align: center;
+        color: white;
+    }
 }
 
-.infoButtonBox{
+.infoButtonBox {
     width: 120px;
     display: flex;
     flex-direction: column;
-    align-items:flex-start;
+    align-items: flex-start;
     gap: 10px;
 }
+
 @media screen and (min-width:v.$tablet_breakpoint) {
-    .infoButtonBox{
+    .infoButtonBox {
         display: flex;
         flex-direction: column;
-        align-items:flex-start;
+        align-items: flex-start;
         margin-bottom: 120px;
         gap: 10px;
     }
 }
 
 @media screen and (min-width: v.$desktop_breakpoint) {
-    .infoButtonBox{
+    .infoButtonBox {
         display: flex;
         flex-direction: row;
-        align-items:flex-start;
+        align-items: flex-start;
         gap: 10px;
     }
 }
 
-.removeButton{
+.removeButton {
     background: rgb(211, 209, 209);
     border: 0;
-    padding:5px;
+    padding: 5px;
     cursor: pointer;
     border-radius: 6PX;
 }
+
 @media screen and (min-width:v.$tablet_breakpoint) {
-    .removeButton{
+    .removeButton {
         margin-left: 30%;
-        position:absolute;
+        position: absolute;
         background: rgb(211, 209, 209);
         border: 0;
-        padding:5px;
+        padding: 5px;
         cursor: pointer;
         border-radius: 8PX;
     }
 }
+
 @media screen and (min-width: v.$desktop_breakpoint) {
-    .removeButton{
+    .removeButton {
         margin-left: 50%;
-        position:absolute;
+        position: absolute;
         margin-top: 75px;
 
-        
-    } 
+
+    }
 }
 
 
 @media screen and (min-width:v.$tablet_breakpoint) {
     .CartProductInfo {
-            position:absolute;
+        position: absolute;
     }
 }
+
 @media screen and (min-width: v.$desktop_breakpoint) {
     .CartProductInfo {
         margin-top: 90px;
         margin-left: 30%;
-            position:absolute;
+        position: absolute;
     }
 }
 
 .cartBox {
     background: rgb(211, 209, 209);
-    display:flex;
+    display: flex;
     flex-direction: row;
     align-items: center;
     gap: 5px;
     margin-top: 10px;
     position: relative;
     border-radius: 10px;
-   
+
 }
+
 @media screen and (min-width:v.$tablet_breakpoint) {
     .cartBox {
         background: rgb(211, 209, 209);
-        display:flex;
+        display: flex;
         flex-direction: row;
         align-items: center;
         gap: 25px;
         margin-top: 10px;
     }
 }
+
 @media screen and (min-width: v.$desktop_breakpoint) {
     .cartBox {
-    background: rgb(211, 209, 209);
-    display:flex;
-    flex-direction: row;
-    align-items: center;
-    margin-top: 10px;
-}
+        background: rgb(211, 209, 209);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 10px;
+    }
 }
 
 .cartImg {
@@ -238,6 +248,7 @@ body{height: 100%;}
     border-radius: 50px;
 
 }
+
 @media screen and (min-width:v.$tablet_breakpoint) {
     .cartImg {
         width: 200px;
@@ -248,14 +259,15 @@ body{height: 100%;}
 
     }
 }
+
 @media screen and (min-width: v.$desktop_breakpoint) {
     .cartImg {
-    width: 200px;
-    height: 200px;
-    object-fit: contain;
-    padding: 10px;
-    border-radius: 50px;
-}
+        width: 200px;
+        height: 200px;
+        object-fit: contain;
+        padding: 10px;
+        border-radius: 50px;
+    }
 }
 
 .CartProductInfo {
@@ -265,6 +277,7 @@ body{height: 100%;}
     flex-direction: column;
     gap: 6px;
 }
+
 @media screen and (min-width:v.$tablet_breakpoint) {
     .CartProductInfo {
         width: 80%;
@@ -274,64 +287,69 @@ body{height: 100%;}
         gap: 60px;
     }
 }
+
 @media screen and (min-width: v.$desktop_breakpoint) {
-.CartProductInfo {
-    width: 80%;
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    gap: 150px;
-}
+    .CartProductInfo {
+        width: 80%;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        gap: 150px;
+    }
 }
 
-.CartProductName{
+.CartProductName {
     font-size: 20px;
     color: black;
     float: left;
     text-align: left;
-   
+
 }
+
 @media screen and (min-width:v.$tablet_breakpoint) {
-    .CartProductName{
+    .CartProductName {
         font-size: 20px;
         color: black;
         width: 150px;
-        
+
     }
 }
+
 @media screen and (min-width: v.$desktop_breakpoint) {
-.CartProductName{
-    font-size: 20px;
-    color: black;
-    
-}
+    .CartProductName {
+        font-size: 20px;
+        color: black;
+
+    }
 }
 
-.CartProductPrice{
+.CartProductPrice {
     font-weight: 700;
     color: brown;
 }
+
 @media screen and (min-width:v.$tablet_breakpoint) {
-    .CartProductPrice{
+    .CartProductPrice {
         font-weight: 700;
         color: brown;
     }
 }
+
 @media screen and (min-width: v.$desktop_breakpoint) {
-.CartProductPrice{
-    font-weight: 700;
-    color: brown;
-}
+    .CartProductPrice {
+        font-weight: 700;
+        color: brown;
+    }
 }
 
-.btnBox{
+.btnBox {
     display: flex;
     flex-direction: row;
     width: 100px;
-   align-items: flex-start;
+    align-items: flex-start;
 }
 
-.CartProductQuantity{
+.CartProductQuantity {
     border: 0;
     width: 10px;
     text-align: center;
@@ -340,9 +358,10 @@ body{height: 100%;}
     color: black;
     border-radius: 0;
 }
+
 @media screen and (min-width:v.$tablet_breakpoint) {
-    .CartProductQuantity{
-        border: 1px solid ;
+    .CartProductQuantity {
+        border: 1px solid;
         outline-color: maroon;
         width: 40px;
         text-align: center;
@@ -351,43 +370,46 @@ body{height: 100%;}
         color: black;
     }
 }
+
 @media screen and (min-width: v.$desktop_breakpoint) {
-.CartProductQuantity{
-    border: 1px solid ;
-    outline-color: maroon;
-    width: 40px;
-    text-align: center;
-    font-size: 12px;
-    font-weight: 600;
-    color: black;
-}
+    .CartProductQuantity {
+        border: 1px solid;
+        outline-color: maroon;
+        width: 40px;
+        text-align: center;
+        font-size: 12px;
+        font-weight: 600;
+        color: black;
+    }
 }
 
-.fa-regular{
+.fa-regular {
     color: black;
     font-size: 32px;
     cursor: pointer;
     margin-right: 10px;
 }
+
 @media screen and (min-width:v.$tablet_breakpoint) {
-    .fa-regular{
+    .fa-regular {
         color: black;
         font-size: 32px;
         cursor: pointer;
         margin-right: 10px;
     }
 }
+
 @media screen and (min-width: v.$desktop_breakpoint) {
-.fa-regular{
-    color: black;
-    font-size: 32px;
-    cursor: pointer;
-    margin-right: 180px;
-}
+    .fa-regular {
+        color: black;
+        font-size: 32px;
+        cursor: pointer;
+        margin-right: 180px;
+    }
 }
 
 
-.checkoutButtonBox{
+.checkoutButtonBox {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -396,102 +418,110 @@ body{height: 100%;}
     gap: 2px;
 
 }
+
 @media screen and (min-width:v.$tablet_breakpoint) {
-    .checkoutButtonBox{
+    .checkoutButtonBox {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
         gap: 10px;
-    
+
     }
 }
+
 @media screen and (min-width: v.$desktop_breakpoint) {
-    .checkoutButtonBox{
+    .checkoutButtonBox {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
         gap: 10px;
-    
+
     }
-    }
+}
 
 
 .total {
     color: black;
-    font-weight:700;
+    font-weight: 700;
     display: flex;
     justify-content: flex-start;
     margin-top: 20px;
     margin-bottom: 10px;
-    
+
 }
+
 @media screen and (min-width:v.$tablet_breakpoint) {
     .total {
         color: black;
-        font-weight:700;
+        font-weight: 700;
         display: flex;
         justify-content: flex-start;
         margin-top: 20px;
         margin-bottom: 10px;
-        
+
     }
 }
+
 @media screen and (min-width: v.$desktop_breakpoint) {
-.total {
-    color: black;
-    font-weight:700;
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    float: right;
-}
+    .total {
+        color: black;
+        font-weight: 700;
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        float: right;
+    }
 }
 
-.totalTitle{
+.totalTitle {
     font-size: 20px;
     font-weight: 700;
 }
+
 @media screen and (min-width:v.$tablet_breakpoint) {
-    .totalTitle{
+    .totalTitle {
         font-size: 20px;
         font-weight: 700;
     }
 }
+
 @media screen and (min-width: v.$desktop_breakpoint) {
-.totalTitle{
-    font-size: 20px;
-    font-weight: 700;
-    
-}
+    .totalTitle {
+        font-size: 20px;
+        font-weight: 700;
+
+    }
 }
 
 
-.totalPrice{
+.totalPrice {
     color: brown;
     font-weight: 700;
     font-size: 20px;
     margin-left: 8px;
 }
+
 @media screen and (min-width:v.$tablet_breakpoint) {
-    .totalPrice{
+    .totalPrice {
         color: brown;
         font-weight: 700;
         font-size: 20px;
         margin-left: 8px;
     }
 }
+
 @media screen and (min-width: v.$desktop_breakpoint) {
-.totalPrice{
-    color: brown;
-    font-weight: 700;
-    font-size: 20px;
-    margin-left: 8px;
-}
+    .totalPrice {
+        color: brown;
+        font-weight: 700;
+        font-size: 20px;
+        margin-left: 8px;
+    }
 }
 
 
-.buy_btn{
+.buy_btn {
     font-size: medium;
     font-weight: 600;
     color: black;
@@ -503,8 +533,9 @@ body{height: 100%;}
     background: yellowgreen;
     border: none;
 }
+
 @media screen and (min-width:v.$tablet_breakpoint) {
-    .buy-btn{
+    .buy-btn {
         font-size: larger;
         font-weight: 600;
         color: black;
@@ -517,47 +548,50 @@ body{height: 100%;}
         border: none;
     }
 }
+
 @media screen and (min-width: v.$desktop_breakpoint) {
-.buy-btn{
-    font-size: larger;
-    font-weight: 600;
-    color: black;
-    display: flex;
-    border-radius: 10px;
-    margin-top: 2px;
-    margin-bottom: 2px;
-    padding: 2px 4px;
-    background: yellowgreen;
-    border: none;
-    float: right;
-}
+    .buy-btn {
+        font-size: larger;
+        font-weight: 600;
+        color: black;
+        display: flex;
+        border-radius: 10px;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        padding: 2px 4px;
+        background: yellowgreen;
+        border: none;
+        float: right;
+    }
 }
 
 
 .buy-btn:hover {
     background: yellow;
-    box-shadow:0px 0px 6px 3px rgb(141, 140, 140);
+    box-shadow: 0px 0px 6px 3px rgb(141, 140, 140);
     transition: 0.5s;
     border: 2px solid white;
     cursor: pointer;
 }
+
 @media screen and (min-width:v.$tablet_breakpoint) {
-        .buy-btn:hover {
-            background: yellow;
-            box-shadow:0px 0px 6px 3px rgb(141, 140, 140);
-            transition: 0.5s;
-            border: 2px solid white;
-            cursor: pointer;
-        }
+    .buy-btn:hover {
+        background: yellow;
+        box-shadow: 0px 0px 6px 3px rgb(141, 140, 140);
+        transition: 0.5s;
+        border: 2px solid white;
+        cursor: pointer;
+    }
 }
+
 @media screen and (min-width: v.$desktop_breakpoint) {
-.buy-btn:hover {
-    background: yellow;
-    box-shadow:0px 0px 6px 3px rgb(141, 140, 140);
-    transition: 0.5s;
-    border: 2px solid white;
-    cursor: pointer;
-}
+    .buy-btn:hover {
+        background: yellow;
+        box-shadow: 0px 0px 6px 3px rgb(141, 140, 140);
+        transition: 0.5s;
+        border: 2px solid white;
+        cursor: pointer;
+    }
 }
 
 
@@ -568,8 +602,9 @@ body{height: 100%;}
     position: absolute;
     color: red;
     cursor: pointer;
-  
-} 
+
+}
+
 @media screen and (min-width:v.$tablet_breakpoint) {
     #close {
         font-size: 24px;
@@ -578,17 +613,18 @@ body{height: 100%;}
         position: absolute;
         color: red;
         cursor: pointer;
-      
-    } 
+
+    }
 }
+
 @media screen and (min-width: v.$desktop_breakpoint) {
-#close {
-    font-size: 24px;
-    top: 12px;
-    right: 12px;
-    position: absolute;
-    color: red;
-    cursor: pointer;
-  
-} 
+    #close {
+        font-size: 24px;
+        top: 12px;
+        right: 12px;
+        position: absolute;
+        color: red;
+        cursor: pointer;
+
+    }
 }
