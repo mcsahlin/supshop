@@ -197,9 +197,22 @@ function checkout() {
             alert("Oops cart is empty!");
             buttonCheckout.setAttribute("href", "../index.html");   
         }else{
-            alert("Thanks for ordering our products!...")
+            if(validateFields()) {
+                alert("Fields are empty");
+
+            }
+        alert("Thanks for ordering our products!...")
         buttonCheckout.setAttribute("href", "../index.html");   
         localStorage.clear();
         }
     });
+}
+
+
+
+function validateFields() : boolean {
+    let email = document.getElementById("email") as HTMLInputElement;
+
+    return email.value == "" || email.value == null;
+
 }

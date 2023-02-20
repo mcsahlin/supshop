@@ -13,7 +13,7 @@ let counter = 0;
 //iterate over each product
 inventory.forEach((prodcut) => populateStaticData(prodcut));
 
-displayToCartBox("00.00", "0");
+displayToCartBox("Total: 00.00", "Products: 0");
 
 function populateStaticData(product: Product) {
   let item_box_div = createHtmlElementWithClassAndId("div", "product_box", "product_box_" + counter);
@@ -67,10 +67,6 @@ document.body.appendChild(product_container);
 
 function addToCart() {
   let btn_list = document.getElementsByClassName("btn_add_to_cart") as HTMLCollectionOf<HTMLElement>;
-let clickedButton = document.querySelector(".btn_add_to_cart") as HTMLElement;
-clickedButton.addEventListener("click", (e) => {
-});
-
 
   for (let i = 0; i < btn_list.length; i++) {
     btn_list[i].addEventListener("click", () => {
@@ -192,7 +188,7 @@ function displayToCartBox(caculatedPrice:string, counterText:string){
   const counter = createHtml("span", "counter_txt") as HTMLElement;
   counter.textContent = counterText;
   const totalPrice = createHtml("span", "total_pr");
-  totalPrice.textContent = caculatedPrice+" kr";
+  totalPrice.textContent = caculatedPrice + " kr";
   const linkToStore = createHtmlElementWithClassAndId("a", "cart_box_link", "cart_box_link_id");
   linkToStore.appendChild(cartIcon);
   
@@ -215,8 +211,8 @@ function displayToCartBox(caculatedPrice:string, counterText:string){
 function updateCurrentPriceAndQuantity(price:string, quantity:string) {
   let priceSpan = document.querySelector(".total_pr") as HTMLElement;
   let counter = document.querySelector(".counter_txt") as HTMLElement;
-  priceSpan.textContent = price;
-  counter.textContent = quantity;
+  priceSpan.textContent = "Total: " + price + " kr";
+  counter.textContent = "Products: "+ quantity;
 }
 
 

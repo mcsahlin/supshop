@@ -1,5 +1,6 @@
 // Header
 @use "./variables" as v;
+@use "mixins" as m;
 
 ul {
   list-style-type: none;
@@ -133,15 +134,18 @@ li a:hover:not(.active) {
 
 #shopping_cart {
   background: goldenrod;
-  width: 200px;
+  width: 240px;
   height: 40px;
-  margin-left: 81%;
+  margin-left: 80%;
   margin-bottom: 20px;
   display: flex;
   flex-direction: row-reverse;
   justify-content: space-between;
   border-radius: 5px;
   position: fixed;
+  @include m.desktop {
+    position: fixed;
+   }
 
 }
 
@@ -158,27 +162,30 @@ li a:hover:not(.active) {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  gap: 20PX;
+  gap: 15PX;
 }
 
 .counter_txt {
+  font-size: small;
   border-radius: 50px;
-  width: 30px;
+  width: 70px;
   height: 30px;
-  text-align: center;
-  margin-left: 15px;
+  text-align: left;
+  margin-right: 25px;
+  margin-top: 2px;
 }
 
 .total_pr {
+  font-size: small;
   margin-top: 20px;
 }
 @media screen and (max-width: v.$tablet_breakpoint) {
   
 #shopping_cart{
   background: goldenrod;
-  width: 150px;
+  width: 160px;
   height: 40px;
-  margin-left: 55%;
+  margin-left: 53%;
   margin-bottom: 10px;
   display: flex;
   flex-direction: row-reverse; 
@@ -190,8 +197,12 @@ li a:hover:not(.active) {
 .cart_icon {
   max-width: 90%;
   max-height: 60%;
-  margin-top: 20px;
+  margin-top: 8px;
   margin-left: 2px;
+  @include m.desktop {
+    margin-top: 20px;
+  
+   }
 }
 
 .cart_box_link {
@@ -204,9 +215,14 @@ li a:hover:not(.active) {
 .counter_txt {
   text-align: center;
   margin-left: 5px;
+
 }
 
 .total_pr {
-margin-top: 20px;
+margin-top: 2px;
+@include m.desktop {
+  margin-top: 20px;
+
+ }
 }
 }

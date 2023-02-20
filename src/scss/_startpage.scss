@@ -259,10 +259,11 @@ body {
 
 
 .input_number {
-    width: 10px;
+    width: 29px;
     text-align: center;
     color: #000000;
     border-radius: 0;
+    border: 0;
 
 }
 
@@ -285,7 +286,7 @@ body {
 
 .btn_minus,
 .btn_plus {
-    width: 120%;
+    width: 100%;
     background: #008000;
     border: 0;
     &:hover {
